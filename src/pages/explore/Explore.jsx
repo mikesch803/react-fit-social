@@ -2,7 +2,7 @@ import React from "react";
 import Button from '@mui/material/Button';
 import { usePostContext } from "../../context";
 import "./Explore.css";
-import { Aside, Nav, Textbox } from "../../components";
+import { Aside, Nav, PostCard, Textbox } from "../../components";
 export function Explore() {
   const { post } = usePostContext();
   return (
@@ -17,7 +17,7 @@ export function Explore() {
           </div>
         {post.map((item) => (
           <li key={item._id}>
-            <Textbox item={item} />
+            <PostCard item={item} />
           </li>
         ))}
       </main>
