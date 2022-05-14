@@ -1,0 +1,9 @@
+@import url("https://component-site-fitui.netlify.app/components/components.css");
+:root {
+    --COLOR-PRIMARY : #03a9f4;
+}
+
+.App {
+    width: 80%;
+    margin: auto;
+}
