@@ -1,0 +1,50 @@
+  .form-signup {
+    grid-area: main;
+    padding: 1rem;
+    justify-content: center;
+    background-color: var(--COLOR-FT);
+    gap: 0.5rem;
+    height: fit-content;
+    max-width: 27rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: var(--BORDER-RADIUS);
+  }
+  
+  .signup-checkbox {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .form-btn {
+    margin-top: 0;
+  }
+  
+  .title-form,
+  .link-account {
+    text-align: center;
+  }
+  
+  .form-checkbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .form-passwordeye {
+    position: absolute;
+    right: 10px;
+    display: flex;
+    border: none;
+    background: none;
+  }
+  
+  .parent-div {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    position: relative;
+  }
+  
+  .flex-1 {
+    flex: 1;
+  }

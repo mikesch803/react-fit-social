@@ -1,6 +1,7 @@
 @import url("https://component-site-fitui.netlify.app/components/components.css");
 :root {
-    --COLOR-PRIMARY : #03a9f4;
+    --COLOR-PRIMARY : #00c9ff;
+    --COLOR-PRIMARY-DARK : #03b9ec;
 }
 
 .App {
