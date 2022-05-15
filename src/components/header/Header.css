@@ -1,0 +1,16 @@
+.header {
+  padding: 0.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: var(--BG-BODY);
+}
+
+.header a {
+  display: flex;
+  color: var(--COLOR-PRIMARY);
+}
+
+.header img {
+  margin-left: 1.5rem;
+}

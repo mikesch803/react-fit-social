@@ -1,0 +1,30 @@
+.nav {
+  grid-area: nav;
+  margin: 0rem 1rem;
+}
+
+.sidebar {
+  margin: 0.5rem;
+  position: sticky;
+  top: 4.5rem;
+}
+
+.sidebar > a,
+.sidebar > a > span {
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar > a {
+  font-size: 1rem;
+}
+
+.nav-icons {
+  margin-right: 1rem;
+  font-size: 1.5rem;
+}
+
+a {
+  text-decoration: none;
+}

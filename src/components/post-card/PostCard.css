@@ -1,0 +1,35 @@
+.post-card {
+    max-width: 37.5rem;
+    padding: 0.5rem;
+    display: flex;
+    border-radius: var(--BORDER-RADIUS);
+    background-color: var(--COLOR-FT);
+}
+
+.post-avatar {
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+}
+
+.post-user {
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+
+.m-l-auto {
+    margin-left: auto;
+}
+
+.m-r-half {
+    margin-right: 0.5rem;
+}
+
+
+.post-icons {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 0.5rem 0 0.5rem;
+    font-size: 1.2rem;
+}
+

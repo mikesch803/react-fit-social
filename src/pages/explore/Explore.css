@@ -1,0 +1,8 @@
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+Button.btn-category {
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,42 @@
+.textbox-container {
+    max-width: 37.5rem;
+    display: flex;
+    padding: 0.5rem;
+    border-radius: var(--BORDER-RADIUS);
+    background-color: var(--COLOR-FT);
+}
+
+.textbox-body {
+flex: 1;
+}
+
+.textbox {
+    width: 100%;
+    resize: none;
+    border: none;
+    display: block;
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+    font-size: 1rem;
+    outline: none;
+}
+
+.textbox-icons {
+    display: flex;
+    font-size: 1.5rem;
+    align-items: center;
+}
+
+.textbox-icons span {
+    margin-right: 0.5rem;
+}
+
+Button.btn-post {
+    margin-left: auto;
+    background-color: var(--COLOR-PRIMARY);
+}
+
+button.btn-post:hover {
+    background-color: var(--COLOR-PRIMARY);
+opacity: 1;
+}
