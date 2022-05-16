@@ -1,0 +1,50 @@
+.landing-page {
+    display: grid;
+    min-height: 100vh;
+    grid-template-areas: "main-text main-form";
+  }
+  
+  .main-text {
+    grid-area: main-text;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2rem 25%;
+  }
+
+  .main-text a {
+display: flex;
+align-items: center;
+  }
+  
+  .main-text h1 {
+      font-size: 5rem;
+      color: var(--COLOR-PRIMARY);
+  }
+  
+  .main-text h2 {
+    font-size: 2rem;
+  }
+  
+  .main-text p {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+  }
+  
+  .main-text button {
+    margin-top: 1rem;
+  }
+  
+  .main-text button + button {
+    margin-top: 0;
+  }
+  
+  .main-text h2 strong {
+    color: var(--COLOR-PRIMARY);
+  }
+  
+  .main-form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }

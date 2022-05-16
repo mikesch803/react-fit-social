@@ -1,18 +1,27 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import { Header } from "./components";
-import { Bookmark, Explore, Home, NotFound, Profile } from "./pages";
+import {
+  Bookmark,
+  Explore,
+  Home,
+  Landing,
+  NotFound,
+  Profile,
+  WithHeader,
+} from "./pages";
 
 function App() {
   return (
     <div className="App">
-      <Header/>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path='/bookmark' element={<Bookmark/>}/>
-        <Route path="/explore" element={<Explore />} />
-        <Route path="/profile" element={<Profile/>}/>
-        <Route path="*" element={<NotFound/>}/>
+        <Route path="/" element={<Landing />} />
+        <Route element={<WithHeader />}>
+          <Route path="/home" element={<Home />} />
+          <Route path="/bookmark" element={<Bookmark />} />
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
       </Routes>
     </div>
   );

@@ -2,7 +2,7 @@ import React from "react";
 import Button from '@mui/material/Button';
 import { usePostContext } from "../../context";
 import "./Explore.css";
-import { Aside, Nav, PostCard, Textbox } from "../../components";
+import { Aside, Nav, PostCard } from "../../components";
 export function Explore() {
   const { post } = usePostContext();
   return (
