@@ -27,16 +27,18 @@ export function PostCard({item}) {
           {item.content}
         </p>
         <div className="post-icons">
-          <span>
-            <HeartLineIcon />{item.likes.likeCount > 0 && item.likes.likeCount}
+          <span className="post-icon">
+            <HeartLineIcon /> <span className="">
+              {item.likes.likeCount > 0 && item.likes.likeCount}
+              </span>
           </span>
-          <span>
+          <span className="post-icon">
             <CommentIcon />
           </span>
-          <span>
+          <span className="post-icon">
             <ShareIcon />
           </span>
-          <span>
+          <span className="post-icon">
             <BookmarkIcon />
           </span>
         </div>
