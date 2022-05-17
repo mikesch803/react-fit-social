@@ -8,7 +8,7 @@ export function SignupForm({setLoginForm}) {
       <form
         className="form form-signup"
       >
-        <div className="parent-div">
+        <div className="parent-div mt-1">
           <input
             type="text"
             placeholder="first name"
