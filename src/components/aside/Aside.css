@@ -1,63 +1,61 @@
 .aside {
-    grid-area: aside;
-    position: sticky;
-    top: 5rem;
-    z-index: 2;
+  grid-area: aside;
+  position: sticky;
+  top: 5rem;
+  z-index: 2;
 }
 
 .aside-searchbox {
-    display: flex;
-border: 1px solid #e0dede;
-align-items: center;
-padding: 0.5rem;
-background-color: var(--COLOR-FT);
-margin-top: 1rem;
+  display: flex;
+  border: 1px solid #e0dede;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: var(--COLOR-FT);
+  margin-top: 1rem;
 }
 
 .aside-searchbox input {
-    border: none;
-    width: 100%;
+  border: none;
+  width: 100%;
 }
 
 .follow-card {
-    /* border: 1px solid #e0dede; */
-    display: flex;
-    flex-direction: column;
-    padding: 0.5rem;
-    background-color: var(--COLOR-FT);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--COLOR-FT);
+  border-radius: var(--BORDER-RADIUS);
 }
 
 .follow-user {
-    display: flex;
-    /* padding: 0.5rem; */
-    align-items: center;
-    
-    /* border: 1px solid #e0dede; */
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--BG-BODY);
 }
 
 .avatar-img {
-    margin-right: 0.5rem;
-    
+  margin-right: 0.5rem;
 }
 
 .m-l-auto {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .follow-card-heading {
-    display: flex;
-    margin-top: 1rem;
-    margin-bottom: 1px;
-    background-color: var(--COLOR-FT);
-    padding: 1rem;
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 1px;
+  background-color: var(--COLOR-FT);
+  padding: 1rem;
+  border-radius: var(--BORDER-RADIUS);
 }
 
 .follow-card-heading > span {
-    color: var(--COLOR-PRIMARY);
+  color: var(--COLOR-PRIMARY);
 }
 
 .follow-user button {
-    background: none;
-    color: var(--COLOR-PRIMARY);
-    border: none;
+  background: none;
+  color: var(--COLOR-PRIMARY);
+  border: none;
 }

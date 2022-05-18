@@ -1,10 +1,8 @@
 import React from "react";
 import Button from '@mui/material/Button';
-import { usePostContext } from "../../context";
 import "./Explore.css";
 import { Aside, Nav, PostCard } from "../../components";
 export function Explore() {
-  const { post } = usePostContext();
   return (
     <div className="page">
       <Nav />
@@ -15,11 +13,11 @@ export function Explore() {
           <Button variant="outlined" className="btn-category">Outlined</Button>
           <Button variant="outlined" className="btn-category">Outlined</Button>
           </div>
-        {post.map((item) => (
+        {/* {post.map((item) => (
           <li key={item._id}>
             <PostCard item={item} />
           </li>
-        ))}
+        ))} */}
       </main>
       <Aside />
     </div>

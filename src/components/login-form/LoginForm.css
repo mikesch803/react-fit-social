@@ -10,6 +10,7 @@
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     border-radius: var(--BORDER-RADIUS);
     max-width: 27rem;
+
   }
   
   .form-btn {
@@ -44,4 +45,9 @@
       width: 100%;
       border-radius: var(--BORDER-RADIUS);
       border: 1px solid;
+      padding: 1rem;
+  }
+
+  .mt-1{
+    margin-top: 1rem;
   }

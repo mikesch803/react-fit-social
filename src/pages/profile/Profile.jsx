@@ -1,10 +1,8 @@
 import React from "react";
 import Button from "@mui/material/Button";
-import { usePostContext } from "../../context";
 import "./Profile.css";
 import { Aside, Nav, PostCard } from "../../components";
 export function Profile() {
-  const { post } = usePostContext();
   return (
     <div className="page">
       <Nav />
@@ -35,11 +33,11 @@ export function Profile() {
           </div>
         </div>
         <h2 className="mb-1">Your Posts</h2>
-        {post.map((item) => (
+        {/* {post.map((item) => (
           <li key={item._id}>
             <PostCard item={item} />
           </li>
-        ))}
+        ))} */}
       </main>
       <Aside />
     </div>

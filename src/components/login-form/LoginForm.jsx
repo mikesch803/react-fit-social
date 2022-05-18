@@ -10,7 +10,7 @@ export function LoginForm({setLoginForm}) {
           required
           type="text"
           placeholder="email"
-          className="form-input"
+          className="form-input mt-1"
           name="email"
         />
         <div className="parent-div">
