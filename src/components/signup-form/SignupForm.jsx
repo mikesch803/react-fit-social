@@ -1,12 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
 import { PasswordNotShowIcon } from "../../assets/icons/icons";
 import "./SignupForm.css";
 
-export function SignupForm({setLoginForm}) {
+export function SignupForm({setLoginForm, signup}) {
+  
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { token } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const [formDetail, setFormDetail] = useState({
+    firstName:"",lastName:"",userName:"",email:"",password:"",
+    confirmPassword:""
+  })
+  useEffect(()=>{  
+    token && navigate(location?.state?.from?.pathname || "/home");
+  },[token])
+  
+  const signupHandler = (e) => {
+    e.preventDefault(e);
+    dispatch(signup(formDetail))
+  }
+
+
   return (
-    <div className="signup-page">
       <form
         className="form form-signup"
+        onSubmit={(e) => signupHandler(e)}
       >
         <div className="parent-div mt-1">
           <input
@@ -15,6 +36,7 @@ export function SignupForm({setLoginForm}) {
             className="form-input flex-1"
             name="firstName"
             required
+            onChange={(e)=>setFormDetail({...formDetail, [e.target.name]:e.target.value})}
           />
           <input
             type="text"
@@ -22,14 +44,24 @@ export function SignupForm({setLoginForm}) {
             className="form-input flex-1"
             name="lastName"
             required
+            onChange={(e)=>setFormDetail({...formDetail, [e.target.name]:e.target.value})}
           />
         </div>
+          <input
+            type="text"
+            placeholder="username"
+            className="form-input"
+            name="userName"
+            required
+            onChange={(e)=>setFormDetail({...formDetail, [e.target.name]:e.target.value})}
+          />
         <input
           type="text"
           placeholder="email"
           className="form-input"
           name="email"
           required
+          onChange={(e)=>setFormDetail({...formDetail, [e.target.name]:e.target.value})}
         />
         <div className="parent-div">
           <input
@@ -37,6 +69,7 @@ export function SignupForm({setLoginForm}) {
             className="form-input flex-1"
             name="password"
             required
+            onChange={(e)=>setFormDetail({...formDetail, [e.target.name]:e.target.value})}
           />
           <button
             className="form-passwordeye"
@@ -51,6 +84,7 @@ export function SignupForm({setLoginForm}) {
             className="form-input flex-1"
             name="confirmPassword"
             required
+            onChange={(e)=>setFormDetail({...formDetail, [e.target.name]:e.target.value})}
           />
           <button
             className="form-passwordeye"
@@ -71,6 +105,5 @@ export function SignupForm({setLoginForm}) {
           Already have an account
         </button>
       </form>
-    </div>
   );
 }

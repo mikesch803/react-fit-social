@@ -4,6 +4,7 @@ import { LoginForm, SignupForm } from "../../components";
 import { default as logo } from "../../assets/images/logo.png";
 import "./Landing.css";
 import { useForm } from "../../hooks/useForm";
+import { guestLogin, login, signup } from "./authSlice";
 export function Landing() {
   const { loginForm, setLoginForm } = useForm();
   return (
@@ -18,7 +19,7 @@ export function Landing() {
         <p className="ft-grey">Share what you thinking.</p>
       </main>
       <main className="main-form">
-        {loginForm ? <LoginForm  setLoginForm={setLoginForm}/> : <SignupForm setLoginForm={setLoginForm}/>}
+        {loginForm ? <LoginForm  setLoginForm={setLoginForm} guestLogin={guestLogin} login={login}/> : <SignupForm setLoginForm={setLoginForm} signup={signup}/>}
       </main>
     </div>
   );

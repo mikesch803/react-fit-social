@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { SearchIcon } from "../../assets/icons/icons";
 import { userAvatar } from "../../assets/images/userAvatar";
+import { otherUsers } from "../../utils";
 import { Loader } from "../loader/Loader";
 import "./Aside.css";
 import { getAllUsers } from "./userSlice";
@@ -11,6 +12,7 @@ export function Aside() {
   useEffect(() => {
     dispatch(getAllUsers());
   }, []);
+  const { user } = useSelector((state) => state.auth);
   return (
     <div>
       <div className="aside">
@@ -25,8 +27,8 @@ export function Aside() {
           {loading ? (
             <Loader />
           ) : (
-            users.map((user) => (
-              <div className="follow-user" key={user._id} >
+            otherUsers(users, user).map((user) => (
+              <div className="follow-user" key={user._id}>
                 <div className="avatar avatar-ss avatar-img">
                   <img
                     src={user.userAvatar ? user.userAvatar : userAvatar}

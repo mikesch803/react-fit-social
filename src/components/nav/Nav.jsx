@@ -1,14 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { navData } from "../../data/nav-data";
-import './Nav.css'
+import "./Nav.css";
 export function Nav() {
   const NavLinkStyles = ({ isActive }) => {
     return {
       color: isActive ? `` : "black",
     };
   };
-
   return (
     <nav className="nav">
       <div className="sidebar">

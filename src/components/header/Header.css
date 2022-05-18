@@ -4,6 +4,8 @@
   top: 0;
   z-index: 2;
   background-color: var(--BG-BODY);
+  display: flex;
+  justify-content: space-between;
 }
 
 .header a {
@@ -13,4 +15,13 @@
 
 .header img {
   margin-left: 1.5rem;
+}
+
+
+.btn-logout {
+  border: none;
+  background: none;
+  font-size: 1.5rem;
+  color: var(--COLOR-PRIMARY);
+  cursor: pointer;
 }
