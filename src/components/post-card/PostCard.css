@@ -8,6 +8,7 @@
 
 .post-body {
     flex-grow: 1;
+    position: relative;
 }
 
 .post-avatar {

@@ -13,7 +13,7 @@ export const guestLogin = createAsyncThunk("auth/guestLogin", async (e,{rejectWi
   e.preventDefault();
   try {
     const response = await axios.post(`/api/auth/login`, {
-      email: "jeet@gmail.com",
+      username: "jeetselal",
       password: "jeetselal",
     });
     toast('Login successfully!')
@@ -40,7 +40,6 @@ export const signup = createAsyncThunk('auth/signup',
 async (field,{rejectWithValue}) => {
   try {
     const response = await axios.post(`/api/auth/signup`, field);
-    
     toast('Signup successfully!')
     return response.data;
   } catch (error) {

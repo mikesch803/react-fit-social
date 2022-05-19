@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   BookmarkIcon,
   CommentIcon,
@@ -6,23 +6,29 @@ import {
   OptionIcon,
   ShareIcon,
 } from "../../assets/icons/icons";
+import { userAvatar } from "../../assets/images/userAvatar";
+import { PostCardOptions } from "../card-options/PostCardOptions";
 import "./PostCard.css";
 export function PostCard({item}) {
+  const [postCardOption,  setPostCardOption] = useState(false);
   return (
     <div className="post-card">
       <img
         className="post-avatar m-r-half"
-        src={item.userAvatar}
+        src={item.userAvatar?item.userAvatar:userAvatar}
         alt="avatar"
       />
 
       <div className="post-body">
         <h3 className="post-user">
-          {item.name} <span className="ft-w-300">{item.username}</span>
-          <span className="m-l-auto m-r-half">
-            <OptionIcon />
+          {item.name} <span className="ft-w-300">@{item.username}</span>
+          <span className="m-l-auto m-r-half" 
+          onClick={()=>setPostCardOption(!postCardOption)}
+          >
+            <OptionIcon />   
           </span>
         </h3>
+        { postCardOption && <PostCardOptions item={item}/> }
         <p className="post-content">
           {item.content}
         </p>

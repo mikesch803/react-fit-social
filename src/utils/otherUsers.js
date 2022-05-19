@@ -1,1 +1,1 @@
-export const otherUsers = (users,loggedInUser) => users.filter(item => item._id !== loggedInUser._id)
+export const otherUsers = (users,loggedInUser) => users.filter(item => item.email !== loggedInUser.email)
