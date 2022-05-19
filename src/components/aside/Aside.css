@@ -7,7 +7,7 @@
 
 .aside-searchbox {
   display: flex;
-  border: 1px solid #e0dede;
+  /* border: 1px solid #e0dede; */
   align-items: center;
   padding: 0.5rem;
   background-color: var(--COLOR-FT);
@@ -30,7 +30,7 @@
   display: flex;
   align-items: center;
   padding: 1rem;
-  border-bottom: 1px solid var(--BG-BODY);
+  border-bottom: 3px solid var(--BG-BODY);
 }
 
 .avatar-img {
@@ -44,7 +44,7 @@
 .follow-card-heading {
   display: flex;
   margin-top: 1rem;
-  margin-bottom: 1px;
+  margin-bottom: 3px;
   background-color: var(--COLOR-FT);
   padding: 1rem;
   border-radius: var(--BORDER-RADIUS);

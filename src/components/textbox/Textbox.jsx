@@ -2,11 +2,13 @@ import React from "react";
 import Button from '@mui/material/Button';
 import { EmojiIcon, GifIcon, ImageIcon } from "../../assets/icons/icons";
 import "./Textbox.css";
+import { useSelector } from "react-redux";
 export function Textbox() {
+  const {user} = useSelector(state => state.auth)
   return (
     <div className="textbox-container">
       <div className="avatar avatar-ms m-r-half">
-        <img src="https://pbs.twimg.com/profile_images/1459403696953966593/swzFkftU_400x400.jpg"
+        <img src={user.userAvatar}
           alt="avatar"
           className="circle-img"
         />

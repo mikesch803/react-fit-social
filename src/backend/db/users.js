@@ -8,6 +8,7 @@ import { formatDate } from "../utils/authUtils";
 export const users = [
   {
     _id: uuid(),
+    email: "jassipinkman@gmail.com",
     firstName: "Jassi",
     lastName: "Pinkman",
     username: "jassipinkman",
@@ -15,14 +16,14 @@ export const users = [
     createdAt: formatDate(),
     updatedAt: formatDate(),
     userAvatar: "",
-    email: "jassipinkman@gmail.com",
   },
   {
     _id: uuid(),
+    email : "jeet@gmail.com",
     firstName: "Jeet",
     lastName: "Selal",
     username: "jeetselal",
-    password: "adarshBalika123",
+    password: "jeetselal",
     createdAt: formatDate(),
     updatedAt: formatDate(),
     userAvatar:
@@ -71,5 +72,17 @@ export const users = [
     updatedAt: formatDate(),
     userAvatar:
       "https://pbs.twimg.com/profile_images/1204727725836996608/ByShSrLR_400x400.jpg",
+  },
+  {
+    _id: uuid(),
+    firstName: "Adarsh",
+    lastName: "Balak",
+    username: "adarshbalak",
+    email:"adarshbalika@gmail.com",
+    password: "adarshBalika123",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    userAvatar:
+      "",
   },
 ];
