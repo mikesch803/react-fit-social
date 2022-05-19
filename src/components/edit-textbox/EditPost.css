@@ -1,0 +1,12 @@
+.textbox-width {
+    width: 100%;
+    z-index: 4;
+    position: relative;
+}
+
+.card-dismis-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}

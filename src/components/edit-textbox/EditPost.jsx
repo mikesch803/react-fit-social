@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
 import { EmojiIcon, GifIcon, ImageIcon } from "../../assets/icons/icons";
-import "./Textbox.css";
+import "./EditPost.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addPost } from "../../pages/home/postSlice";
+import { editPost } from "../../pages/home/postSlice";
 import { userAvatar } from "../../assets/images/userAvatar";
 
-export function Textbox() {
+export function EditPost({currPost, closeEditModal}) {
   const {user} = useSelector(state => state.auth);
-  const [postContent, setPostContent] = useState({name:user.firstName+" "+user.lastName})
+  const [postContent, setPostContent] = useState({...currPost})
   const dispatch = useDispatch()
   return (
-    <div className="textbox-container">
+    <div className="textbox-container textbox-width">
       <div className="avatar avatar-ms m-r-half">
         <img src={user.userAvatar?user.userAvatar:userAvatar}
           alt="avatar"
@@ -23,21 +24,29 @@ export function Textbox() {
           className="textbox "
           rows={7}
           placeholder="whats happening"
+          value={postContent.content}
           onChange={(e)=>setPostContent({...postContent, content:e.target.value})}
+
         ></textarea>
+        
+      <button className="card-dismis-btn" onClick={()=>dispatch(closeEditModal())}>&times;</button>
         <div className="textbox-icons">
-          <span>
+          <IconButton>
             <ImageIcon />
-          </span>
-          <span>
+          </IconButton>
+          <IconButton>
             <GifIcon />
-          </span>
-          <span>
+          </IconButton>
+          <IconButton>
             <EmojiIcon />
-          </span>
-          <Button className="btn-post" variant="contained" onClick={()=>dispatch(addPost(postContent))}>post</Button>
+          </IconButton>
+          <Button className="btn-post" variant="contained" 
+          onClick={()=>{ dispatch(editPost(postContent)); dispatch(closeEditModal())}}
+          >post</Button>
         </div>
+        
       </div>
     </div>
   );
 }
+

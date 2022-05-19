@@ -15,7 +15,7 @@ export function LoginForm({ setLoginForm, guestLogin, login }) {
   },[token])
 
   const [formDetail, setFormDetail] = useState({
-    email: "",
+    username: "",
     password: "",
   });
 
@@ -33,9 +33,9 @@ export function LoginForm({ setLoginForm, guestLogin, login }) {
       <input
         required
         type="text"
-        placeholder="email"
+        placeholder="username"
         className="form-input mt-1"
-        name="email"
+        name="username"
         onChange={(e) =>
           setFormDetail({ ...formDetail, [e.target.name]: e.target.value })
         }

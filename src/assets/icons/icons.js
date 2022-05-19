@@ -125,3 +125,24 @@ export function LogoutIcon(props) {
     <svg width="1em" height="1em" viewBox="0 0 36 36" {...props}><path fill="currentColor" d="M7 6h16v9.8h2V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v24a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2H7Z" className="clr-i-outline clr-i-outline-path-1"></path><path fill="currentColor" d="M28.16 17.28a1 1 0 0 0-1.41 1.41L30.13 22h-14.5a1 1 0 0 0-1 1a1 1 0 0 0 1 1h14.5l-3.38 3.46a1 1 0 1 0 1.41 1.41l5.84-5.8Z" className="clr-i-outline clr-i-outline-path-2"></path><path fill="none" d="M0 0h36v36H0z"></path></svg>
   )
 }
+
+
+export function FollowIcon(props) {
+  return (
+    <svg width="1.5rem" height="1.5rem" color="black" viewBox="0 0 21 21" {...props}><g fill="none" fillRule="evenodd" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><path d="M10.5 2.5a3 3 0 0 1 3 3v2a3 3 0 1 1-6 0v-2a3 3 0 0 1 3-3zm7 2v4m2-2h-4"></path><path d="M17.5 16.5v-.728c0-3.187-3.686-5.272-7-5.272s-7 2.085-7 5.272v.728a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"></path></g></svg>
+  )
+}
+
+
+export function RemoveIcon(props) {
+  return (
+    <svg width="1em" height="1em" viewBox="0 0 36 36" {...props}><path fill="currentColor" d="M27.14 34H8.86A2.93 2.93 0 0 1 6 31V11.23h2V31a.93.93 0 0 0 .86 1h18.28a.93.93 0 0 0 .86-1V11.23h2V31a2.93 2.93 0 0 1-2.86 3Z" className="clr-i-outline clr-i-outline-path-1"></path><path fill="currentColor" d="M30.78 9H5a1 1 0 0 1 0-2h25.78a1 1 0 0 1 0 2Z" className="clr-i-outline clr-i-outline-path-2"></path><path fill="currentColor" d="M21 13h2v15h-2z" className="clr-i-outline clr-i-outline-path-3"></path><path fill="currentColor" d="M13 13h2v15h-2z" className="clr-i-outline clr-i-outline-path-4"></path><path fill="currentColor" d="M23 5.86h-1.9V4h-6.2v1.86H13V4a2 2 0 0 1 1.9-2h6.2A2 2 0 0 1 23 4Z" class="clr-i-outline clr-i-outline-path-5"></path><path fill="none" d="M0 0h36v36H0z"></path></svg>
+  )
+}
+
+
+export function EditIcon(props) {
+  return (
+    <svg width="1em" height="1em" viewBox="0 0 36 36" {...props}><path fill="currentColor" d="M33.87 8.32L28 2.42a2.07 2.07 0 0 0-2.92 0L4.27 23.2l-1.9 8.2a2.06 2.06 0 0 0 2 2.5a2.14 2.14 0 0 0 .43 0l8.29-1.9l20.78-20.76a2.07 2.07 0 0 0 0-2.92ZM12.09 30.2l-7.77 1.63l1.77-7.62L21.66 8.7l6 6ZM29 13.25l-6-6l3.48-3.46l5.9 6Z" className="clr-i-outline clr-i-outline-path-1"></path><path fill="none" d="M0 0h36v36H0z"></path></svg>
+  )
+}
