@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { LogoutIcon } from "../../assets/icons/icons";
 import { default as logo } from "../../assets/images/logo.png";
-import { logoutHandler } from "../../pages/landing/authSlice";
+import { logoutHandler } from "../../reducers/authSlice";
 import "./Header.css";
 export function Header() {
   const { token } = useSelector((state) => state.auth);

@@ -48,6 +48,50 @@ async (field,{rejectWithValue}) => {
 }
 )
 
+export const follow = createAsyncThunk(
+  "user/follow",
+  async (followUser, { rejectWithValue }) => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await axios.post(
+        `/api/users/follow/${followUser._id}`,
+        {},
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      toast('followed')
+      return response.data.followUser;
+    } catch (err) {
+      return rejectWithValue(err);
+    }
+  }
+);
+
+export const unfollow = createAsyncThunk(
+  "users/unfollow",
+  async (followUser, { rejectWithValue }) => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await axios.post(
+        `/api/users/unfollow/${followUser._id}`,
+        {},
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      toast('unfollowed')
+      return response.data.followUser;
+    } catch (err) {
+      return rejectWithValue(err);
+    }
+  }
+);
+
 export const authSlice = createSlice({
   name: "auth",
   initialState,
@@ -104,6 +148,29 @@ export const authSlice = createSlice({
     [signup.rejected]:(state, action) => {
       state.loading = false;
       state.error = action.payload
+    },
+
+    [follow.pending]: (state) => {
+      state.loading = true;
+    },
+    [follow.fulfilled]: (state, action) => {
+      state.loading = false;
+      state.user.following = [...state.user.following, action.payload];
+    },
+    [follow.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.error;
+    },
+    [unfollow.pending]: (state) => {
+      state.loading = true;
+    },
+    [unfollow.fulfilled]: (state, action) => {
+      state.loading = false;
+      state.user.following = state.user.following.filter(item => item.username !== action.payload.username);
+    },
+    [unfollow.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.error;
     },
   },
 });

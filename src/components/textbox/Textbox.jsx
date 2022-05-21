@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import { EmojiIcon, GifIcon, ImageIcon } from "../../assets/icons/icons";
 import "./Textbox.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addPost } from "../../pages/home/postSlice";
+import { addPost } from "../../reducers/postSlice";
 import { userAvatar } from "../../assets/images/userAvatar";
 
 export function Textbox() {

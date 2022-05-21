@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   BookmarkIcon,
+  BookmarkSolidIcon,
   CommentIcon,
   HeartLineIcon,
   OptionIcon,
@@ -8,9 +10,13 @@ import {
 } from "../../assets/icons/icons";
 import { userAvatar } from "../../assets/images/userAvatar";
 import { PostCardOptions } from "../card-options/PostCardOptions";
+import { addToBookmark, removeFromBookmark } from "../../reducers/bookmarkSlice";
 import "./PostCard.css";
+import { checkBookmark } from "../../utils";
 export function PostCard({item}) {
   const [postCardOption,  setPostCardOption] = useState(false);
+  const {bookmarks} = useSelector(state => state.bookmark)
+  const dispatch = useDispatch();
   return (
     <div className="post-card">
       <img
@@ -44,9 +50,15 @@ export function PostCard({item}) {
           <span className="post-icon">
             <ShareIcon />
           </span>
-          <span className="post-icon">
+          {
+            checkBookmark(bookmarks,item) ?
+            <span className="post-icon" onClick={()=>dispatch(addToBookmark(item))}>
             <BookmarkIcon />
-          </span>
+          </span> :
+          <span className="post-icon" onClick={()=>dispatch(removeFromBookmark(item))}>
+          <BookmarkSolidIcon />
+        </span>
+          }
         </div>
       </div>
     </div>

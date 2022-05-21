@@ -4,7 +4,7 @@ import IconButton from '@mui/material/IconButton';
 import { EmojiIcon, GifIcon, ImageIcon } from "../../assets/icons/icons";
 import "./EditPost.css";
 import { useDispatch, useSelector } from "react-redux";
-import { editPost } from "../../pages/home/postSlice";
+import { editPost } from "../../reducers/postSlice";
 import { userAvatar } from "../../assets/images/userAvatar";
 
 export function EditPost({currPost, closeEditModal}) {

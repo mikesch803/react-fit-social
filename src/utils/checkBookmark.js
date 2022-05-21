@@ -1,0 +1,1 @@
+export const checkBookmark = (bookmarks, item) => !bookmarks.some(bookmark => bookmark._id === item._id) 

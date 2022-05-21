@@ -6,9 +6,8 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import { EditIcon, FollowIcon, RemoveIcon } from "../../assets/icons/icons";
-import { deletePost, openEditModal } from "../../pages/home/postSlice";
-
+import { EditIcon, RemoveIcon } from "../../assets/icons/icons";
+import { deletePost, openEditModal } from "../../reducers/postSlice";
 export function PostCardOptions({ item, setPostCardOption }) {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
@@ -51,16 +50,6 @@ export function PostCardOptions({ item, setPostCardOption }) {
                 </ListItemButton>
               </ListItem>
             </>
-          )}
-          {user.username !== item.username && (
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <FollowIcon />
-                </ListItemIcon>
-                <ListItemText primary="Follow" />
-              </ListItemButton>
-            </ListItem>
           )}
         </List>
       </nav>

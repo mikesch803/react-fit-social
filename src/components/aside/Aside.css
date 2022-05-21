@@ -59,3 +59,7 @@
   color: var(--COLOR-PRIMARY);
   border: none;
 }
+
+.btn-show-more {
+  cursor: pointer;
+}
