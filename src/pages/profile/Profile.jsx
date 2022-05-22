@@ -1,43 +1,75 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import "./Profile.css";
-import { Aside, Nav, PostCard } from "../../components";
+import { Aside, Loader, Nav, PostCard } from "../../components";
+import { useDispatch, useSelector } from "react-redux";
+import { userAvatar } from "../../assets/images/userAvatar";
+import { useParams } from "react-router-dom";
+import {follow, unfollow} from "../../reducers/authSlice";
+import { checkFollowing } from "../../utils";
+import { EditProfileModal } from "../../components/edit-profile/EditProfileModal";
 export function Profile() {
+  const {user} = useSelector(state => state.auth);
+  const {posts, loading} = useSelector(state => state.posts);
+  const {users : allUsers} = useSelector(state => state.users);
+  const { username } = useParams();
+
+  const [profileUser, setProfileUser] = useState(user);
+  const dispatch = useDispatch()
+  useEffect(()=>{
+     const currentUser = allUsers.find(item => item.username === username)
+
+     if(currentUser){
+       setProfileUser(currentUser)
+     } else {
+       setProfileUser(user)
+     }
+     
+  },[allUsers,user,profileUser,posts, username])
+  console.log(posts)
   return (
     <div className="page">
       <Nav />
       <main className="main">
         <div className="profile-detail-container m-tb-1">
           <img
-            src="https://pbs.twimg.com/profile_images/1459403696953966593/swzFkftU_400x400.jpg"
+            src={profileUser.userAvatar?profileUser.userAvatar:userAvatar}
             alt="profile-pic"
             className="profile-img"
           />
-          <h2 className="m-0">Mahendra Chauhan</h2>
-          <span>@mikesch_34</span>
-          <Button variant="outlined">Edit Profile</Button>
-          <small>growing with @neogcamp</small>
+          <h2 className="m-0">{profileUser.firstName} {profileUser.lastName}</h2>
+          <span>@{profileUser.username}</span>
+          {profileUser.username === user.username ? 
+        <EditProfileModal profileUser={profileUser}/>
+          : checkFollowing(user,profileUser) ? <Button variant="outlined" onClick={()=>dispatch(unfollow(profileUser))}>following</Button> : <Button variant="outlined" onClick={()=>dispatch(follow(profileUser))}>follow</Button> } 
+          <small>{profileUser.bio}</small>
         </div>
         <div className="flex-container m-tb-1">
           <div className="mb-1">
-            <h2>114</h2>
+            <h2>{profileUser.following.length}</h2>
             <p>following</p>
           </div>
           <div className="mb-1">
-            <h2>60</h2>
+            <h2>{profileUser.followers.length}</h2>
             <p>followers</p>
           </div>
           <div className="mb-1">
-            <h2>93</h2>
+            <h2>{posts.filter(post => post.username === profileUser.username).length}</h2>
             <p>posts</p>
           </div>
         </div>
         <h2 className="mb-1">Your Posts</h2>
-        {/* {post.map((item) => (
-          <li key={item._id}>
-            <PostCard item={item} />
-          </li>
-        ))} */}
+
+        {loading ? (
+          <Loader />
+        ) : (
+          posts.filter(post => post.username === profileUser.username).map((item) => (
+            <li key={item._id}>
+              <PostCard item={item}
+              />
+            </li>
+          ))
+        )}
       </main>
       <Aside />
     </div>

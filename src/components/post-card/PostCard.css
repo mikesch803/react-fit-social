@@ -54,4 +54,5 @@
     white-space: pre-wrap;
     width: 100%;
     margin: 1rem 0;
+    word-break: break-all;
 }

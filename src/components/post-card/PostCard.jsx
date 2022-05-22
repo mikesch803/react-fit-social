@@ -4,6 +4,7 @@ import {
   BookmarkIcon,
   BookmarkSolidIcon,
   CommentIcon,
+  FillHeartIcon,
   HeartLineIcon,
   OptionIcon,
   ShareIcon,
@@ -11,12 +12,17 @@ import {
 import { userAvatar } from "../../assets/images/userAvatar";
 import { PostCardOptions } from "../card-options/PostCardOptions";
 import { addToBookmark, removeFromBookmark } from "../../reducers/bookmarkSlice";
+
+import { likePost, dislikePost } from "../../reducers/postSlice";
 import "./PostCard.css";
-import { checkBookmark } from "../../utils";
+import { checkBookmark, checkLikedByUser } from "../../utils";
+import { useNavigate } from "react-router-dom";
 export function PostCard({item}) {
   const [postCardOption,  setPostCardOption] = useState(false);
-  const {bookmarks} = useSelector(state => state.bookmark)
+  const {bookmarks} = useSelector(state => state.bookmark);
+  const {user} = useSelector(state => state.auth);
   const dispatch = useDispatch();
+  
   return (
     <div className="post-card">
       <img
@@ -26,7 +32,7 @@ export function PostCard({item}) {
       />
 
       <div className="post-body">
-        <h3 className="post-user">
+        <h3 className="post-user" >
           {item.name} <span className="ft-w-300">@{item.username}</span>
           <span className="m-l-auto m-r-half" 
           onClick={()=>setPostCardOption(!postCardOption)}
@@ -39,11 +45,19 @@ export function PostCard({item}) {
           {item.content}
         </p>
         <div className="post-icons">
-          <span className="post-icon">
+          {checkLikedByUser(item, user) ? 
+            <span className="post-icon" onClick={()=>dispatch(dislikePost(item))}>
+            <FillHeartIcon /> <span className="">
+              {item.likes.likeCount > 0 && item.likes.likeCount}
+              </span>
+          </span> :
+
+          <span className="post-icon" onClick={()=>dispatch(likePost(item))}>
             <HeartLineIcon /> <span className="">
               {item.likes.likeCount > 0 && item.likes.likeCount}
               </span>
           </span>
+          }
           <span className="post-icon">
             <CommentIcon />
           </span>

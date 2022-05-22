@@ -1,0 +1,14 @@
+.textbox-bio {
+    border: 1px solid;
+    margin-top: 0.5rem;
+    border-radius: var(--BORDER-RADIUS);
+}
+
+Button.btn-save {
+    background-color: var(--COLOR-PRIMARY);
+    margin-left: auto;
+}
+
+.mb-half{
+    margin-bottom: 0.5rem;
+}

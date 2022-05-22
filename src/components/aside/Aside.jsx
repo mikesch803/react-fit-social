@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { SearchIcon } from "../../assets/icons/icons";
 import { userAvatar } from "../../assets/images/userAvatar";
-import { otherUsers } from "../../utils";
+import { checkFollowing, otherUsers } from "../../utils";
 import { Loader } from "../loader/Loader";
 import "./Aside.css";
 import { getAllUsers } from "../../reducers/userSlice";
 import { follow, unfollow } from "../../reducers/authSlice";
+import { getThisUser } from "../../reducers/userSlice";
+import { useNavigate } from "react-router-dom";
 export function Aside() {
+  const navigate = useNavigate();
   const { users, loading } = useSelector((state) => state.users);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -50,12 +53,16 @@ export function Aside() {
                   />
                 </div>
                 <div>
-                  <h3>
+                  <h3
+                    onClick={() => {
+                      navigate(`/${item.username}`);
+                    }}
+                  >
                     {item.firstName} {item.lastName}
                   </h3>
                   <span className="ft-w-300">@{item.username}</span>
                 </div>
-                {user.following.some((ele) => ele.username === item.username) ? (
+                {checkFollowing(user, item) ? (
                   <button
                     className="m-l-auto"
                     onClick={() => dispatch(unfollow(item))}
