@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import {authReducer, postReducer, userReducer} from './index'
+import { authReducer, bookmarkReducer, postReducer, userReducer } from "../reducers";
+// import {authReducer, bookmarkReducer, postReducer, userReducer} from './index'
 export const store = configureStore({
   reducer: {
     posts: postReducer,
     users : userReducer,
-    auth : authReducer
+    auth : authReducer,
+    bookmark : bookmarkReducer
   },
 });

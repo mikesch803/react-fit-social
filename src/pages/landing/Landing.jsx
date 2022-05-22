@@ -4,7 +4,7 @@ import { LoginForm, SignupForm } from "../../components";
 import { default as logo } from "../../assets/images/logo.png";
 import "./Landing.css";
 import { useForm } from "../../hooks/useForm";
-import { guestLogin, login, signup } from "./authSlice";
+import { guestLogin, login, signup } from "../../reducers/authSlice";
 export function Landing() {
   const { loginForm, setLoginForm } = useForm();
   return (

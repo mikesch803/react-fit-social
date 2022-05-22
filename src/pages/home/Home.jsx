@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { Aside, Loader, Nav, PostCard, Textbox } from "../../components";
 import { EditPost } from "../../components/edit-textbox/EditPost";
 import "./Home.css";
-import { getAllPosts, closeEditModal } from "./postSlice";
+import { getAllPosts, closeEditModal } from "../../reducers/postSlice";
 export function Home() {
   const { posts, loading, editModal, currPost } = useSelector((state) => state.posts);
-console.log(editModal)
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllPosts());

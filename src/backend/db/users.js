@@ -32,6 +32,7 @@ export const users = [
   },
   {
     _id: uuid(),
+    email : "beerBiceps@gmail.com",
     firstName: "Ranveer",
     lastName: "Allahbadia",
     username: "BeerBicepGuy",
@@ -43,6 +44,7 @@ export const users = [
   },
   {
     _id: uuid(),
+    email : "keith86@gmail.com",
     firstName: "keith",
     lastName: "",
     username: "keith86",
@@ -54,6 +56,7 @@ export const users = [
   },
   {
     _id: uuid(),
+    email : "jamesclear@gmail.com",
     firstName: "James",
     lastName: "Clear",
     username: "jamesclear",
@@ -65,6 +68,7 @@ export const users = [
   },
   {
     _id: uuid(),
+    email : "mmanson@gmail.com",
     firstName: "Mark",
     lastName: "Manson",
     username: "IAmMarkManson",
