@@ -7,15 +7,15 @@ import {
   Landing,
   NotFound,
   Profile,
+  RequireAuth,
+  SinglePost,
   WithHeader,
 } from "./pages";
 import Mockman from "mockman-js";
-import { RequireAuth } from "./pages/auth/RequireAuth";
 import { injectStyle } from "react-toastify/dist/inject-style";
 import { ToastContainer } from "react-toastify";
 
 function App() {
-  
   if (typeof window !== "undefined") {
     injectStyle();
   }
@@ -29,12 +29,13 @@ function App() {
             <Route path="/bookmark" element={<Bookmark />} />
             <Route path="/explore" element={<Explore />} />
             <Route path="/:username" element={<Profile />} />
+            <Route path="/post/:PostId" element={<SinglePost />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/mock" element={<Mockman />} />
           </Route>
         </Route>
       </Routes>
-      <ToastContainer autoClose={2000}/>
+      <ToastContainer autoClose={2000} />
     </div>
   );
 }

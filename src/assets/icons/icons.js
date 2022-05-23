@@ -16,7 +16,6 @@ export function HomeIcon(props) {
   );
 }
 
-
 export function ExploreIcon(props) {
     return (
       <svg width="1em" height="1em" viewBox="0 0 21 21" {...props}><g fill="none" fillRule="evenodd" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" transform="translate(4 1)"><path d="M6.5 18.5c3-2.502 4-5.502 4-9s-1-6.498-4-9c-3 2.502-4 5.502-4 9s1 6.498 4 9z"></path><path d="M10.062 13.362a5.65 5.65 0 0 1 1.171.902c1.12 1.119 1.69 2.574 1.714 4.365c-2.509-.11-3.882-.765-4.926-1.647m-5.115-3.62a5.646 5.646 0 0 0-1.172.902C.615 15.383.044 16.838.021 18.629c2.508-.11 3.882-.765 4.926-1.647"></path><circle cx="6.5" cy="6.5" r="2"></circle></g></svg>
@@ -165,5 +164,12 @@ export function UnfollowIcon(props) {
 export function FillHeartIcon(props) {
   return (
     <svg width="1em" height="1em" viewBox="0 0 36 36" {...props}><path fill="currentColor" d="M33 7.64c-1.34-2.75-5.2-5-9.69-3.69A9.87 9.87 0 0 0 18 7.72a9.87 9.87 0 0 0-5.31-3.77C8.19 2.66 4.34 4.89 3 7.64c-1.88 3.85-1.1 8.18 2.32 12.87C8 24.18 11.83 27.9 17.39 32.22a1 1 0 0 0 1.23 0c5.55-4.31 9.39-8 12.07-11.71c3.41-4.69 4.19-9.02 2.31-12.87Z" className="clr-i-solid clr-i-solid-path-1"></path><path fill="none" d="M0 0h36v36H0z"></path></svg>
+  )
+}
+
+
+export function CameraIcon(props) {
+  return (
+    <svg width="1em" height="1em" viewBox="0 0 21 21" {...props}><g fill="none" fillRule="evenodd"><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="M2.5 14.5v-6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2z"></path><path fill="currentColor" d="M17 9a1 1 0 1 0-2 0a1 1 0 0 0 2 0z"></path><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="M13.5 11.5a3 3 0 1 0-6 0a3 3 0 0 0 6 0zm-4-7h2a1 1 0 0 1 1 1v1h-4v-1a1 1 0 0 1 1-1z"></path></g></svg>
   )
 }

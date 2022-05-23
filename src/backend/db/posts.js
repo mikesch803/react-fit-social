@@ -21,6 +21,7 @@ export const posts = [
     username: "IAmMarkManson",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    comments:[]
   },
   {
     _id: uuid(),
@@ -35,6 +36,7 @@ export const posts = [
     username: "BeerBicepsGuy",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    comments:[]
   },
   {
     _id: uuid(),
@@ -49,7 +51,28 @@ export const posts = [
     username: "jeetselal",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    comments: [
+      {
+        _id: uuid(),
+        username: "shubhamsoni",
+        text: "Interesting",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+      {
+        _id: uuid(),
+        username: "sohamshah",
+        text: "Wow!",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
   },
+
   {
     _id: uuid(),
     userAvatar: "https://pbs.twimg.com/profile_images/958932211973152769/FUpkmn4u_400x400.jpg",
@@ -63,6 +86,7 @@ export const posts = [
     username: "jamesclear",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    comments:[]
   },
   {
     _id: uuid(),
@@ -77,6 +101,7 @@ export const posts = [
     username: "keith86",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    comments:[]
   },
 ];
 

@@ -1,0 +1,29 @@
+.reply-input {
+    padding: 0.5rem;
+    border-radius: var(--BORDER-RADIUS);
+    border: none;  
+    width: 100%;
+    background-color: var(--COLOR-FT);
+    gap: 0.5rem;
+}
+
+.comment-box {
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.reply-icons > button{
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+    color: black;
+}
+
+.reply-icons > button+button {
+    color: red;
+}
+
+.reply-icons {
+    margin-left: auto;
+}

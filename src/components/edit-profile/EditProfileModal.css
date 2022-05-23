@@ -12,3 +12,36 @@ Button.btn-save {
 .mb-half{
     margin-bottom: 0.5rem;
 }
+
+.edit-profile-pic {
+    border: 1px solid var(--COLOR-SECONDARY);
+    /* display: block; */
+}
+
+.input-file {
+    top: 2rem;
+    left: 0.5rem;
+    z-index: 1;
+    position: relative;
+    top: -0.5rem;
+    left:-7rem;
+    opacity:0;
+}
+
+.btn-icon {
+    border-radius: 50%;
+    background-color: rgba(15, 20, 25, 0.75);
+    color: var(--COLOR-FT);
+    position: relative;
+    /* top: -6rem; */
+    left: -17rem;
+    display: flex;
+    align-items: center;
+    /* z-index: 3; */
+}
+
+.profile-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
