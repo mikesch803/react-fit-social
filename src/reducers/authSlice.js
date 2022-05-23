@@ -92,6 +92,23 @@ export const unfollow = createAsyncThunk(
   }
 );
 
+export const editUserProfile = createAsyncThunk("auth/editUserProfile", async (userData, {rejectWithValue}) => {
+  const token = localStorage.getItem('token')
+  try {
+    const response = await axios.post("/api/users/edit",{
+      userData
+    },{
+      headers : {
+        authorization : token
+      }
+    });
+    console.log(response.data.user)
+    return response.data.user;
+  } catch (err) {
+    return rejectWithValue(err)
+  }
+});
+
 export const authSlice = createSlice({
   name: "auth",
   initialState,
@@ -172,6 +189,18 @@ export const authSlice = createSlice({
       state.loading = false;
       state.error = action.error;
     },
+    [editUserProfile.pending]: (state) => {
+      state.loading = true;
+    },
+    [editUserProfile.fulfilled]: (state, action) => {
+      state.loading = false;
+      state.user = action.payload;
+    },
+    [editUserProfile.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.error;
+    },
+    
   },
 });
 

@@ -69,7 +69,7 @@ export const deletePost = createAsyncThunk(
 export const editPost = createAsyncThunk(
   "posts/editPost",
   async (post, { rejectWithValue }) => {
-    console.log(post)
+
     try {
       const token = localStorage.getItem("token");
 
@@ -85,6 +85,57 @@ export const editPost = createAsyncThunk(
         }
       );
       toast('Post updated')
+      return response.data.posts;
+    } catch (err) {
+      return rejectWithValue(err);
+    }
+  }
+);
+
+export const likePost = createAsyncThunk(
+  "posts/likePost",
+  async (post, { rejectWithValue }) => {
+
+    try {
+      const token = localStorage.getItem("token");
+
+      const response = await axios.post(
+        `/api/posts/like/${post._id}`,
+        {
+        },
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      toast('Post liked')
+      console.log(response.data.posts)
+      return response.data.posts;
+    } catch (err) {
+      return rejectWithValue(err);
+    }
+  }
+);
+
+export const dislikePost = createAsyncThunk(
+  "posts/dislike",
+  async (post, { rejectWithValue }) => {
+    // console.log(post)
+    try {
+      const token = localStorage.getItem("token");
+
+      const response = await axios.post(
+        `/api/posts/dislike/${post._id}`,
+        {
+        },
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      toast('Post disliked')
       return response.data.posts;
     } catch (err) {
       return rejectWithValue(err);
@@ -146,6 +197,28 @@ export const postSlice = createSlice({
       state.posts = action.payload;
     },
     [editPost.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.error;
+    },
+    [likePost.pending]: (state) => {
+      state.loading = true;
+    },
+    [likePost.fulfilled]: (state, action) => {
+      state.loading = false;
+      state.posts = action.payload;
+    },
+    [likePost.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.error;
+    },
+    [dislikePost.pending]: (state) => {
+      state.loading = true;
+    },
+    [dislikePost.fulfilled]: (state, action) => {
+      state.loading = false;
+      state.posts = action.payload;
+    },
+    [dislikePost.rejected]: (state, action) => {
       state.loading = false;
       state.error = action.error;
     },

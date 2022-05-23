@@ -28,13 +28,13 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/bookmark" element={<Bookmark />} />
             <Route path="/explore" element={<Explore />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/:username" element={<Profile />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/mock" element={<Mockman />} />
           </Route>
         </Route>
       </Routes>
-      <ToastContainer/>
+      <ToastContainer autoClose={2000}/>
     </div>
   );
 }

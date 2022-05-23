@@ -1,20 +1,18 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { toast } from "react-toastify";
 const initialState = {
   users: [],
   loading: false,
   error: "",
-  following: [],
 };
 
 export const getAllUsers = createAsyncThunk("users/getAllUsers", async () => {
   try {
     const response = await axios.get("/api/users");
     return response.data.users;
-  } catch (err) {}
+  } catch (err) {
+  }
 });
-
 
 
 export const userSlice = createSlice({
@@ -28,7 +26,6 @@ export const userSlice = createSlice({
       state.loading = false;
       state.users = action.payload;
     },
-    
   },
 });
 
