@@ -14,12 +14,13 @@ import { useParams } from "react-router-dom";
 import { EditIcon, RemoveIcon } from "../../assets/icons/icons";
 import { Avatar, Button } from "@mui/material";
 import "./SinglePost.css";
+import { useTitle } from "../../hooks";
 export function SinglePost() {
   const { editModal, currPost, singlePost } = useSelector(
     (state) => state.posts
   );
   const { users } = useSelector((state) => state.users);
-  const { user:loggedInUser } = useSelector(state => state.auth)
+  const { user: loggedInUser } = useSelector((state) => state.auth);
   const { PostId } = useParams();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -32,6 +33,9 @@ export function SinglePost() {
     reply: "",
     editReplyState: false,
   });
+
+  
+useTitle("Post");
 
   return (
     <div className="page">
@@ -54,6 +58,7 @@ export function SinglePost() {
           />
           {!comment.editReplyState ? (
             <Button
+              className="btn-reply"
               variant="contained"
               size="small"
               onClick={() => {
@@ -65,6 +70,7 @@ export function SinglePost() {
             </Button>
           ) : (
             <Button
+              className="btn-reply"
               variant="contained"
               size="small"
               onClick={() => {
@@ -76,7 +82,7 @@ export function SinglePost() {
             </Button>
           )}
         </div>
-        <ul>
+        <ul className="mr-half comments">
           {singlePost.comments?.map((ele) => (
             <li className="reply-input follow-user" key={ele._id}>
               <Avatar

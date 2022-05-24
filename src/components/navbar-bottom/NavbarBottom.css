@@ -1,0 +1,23 @@
+.navbar-bottom {
+    background-color: var(--BG-BODY);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 3;
+    padding: 0.5rem;
+    display: none;
+  }
+  
+  .navbar-bottom-icons,
+  .navbar-bottom-icons > a {
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media only screen and (max-width: 650px) {
+    .navbar-bottom {
+        display: block;
+      }
+  }

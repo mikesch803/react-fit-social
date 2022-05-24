@@ -1,6 +1,5 @@
 .page {
   display: grid;
-  grid-template-columns: 250px 1fr 350px;
   grid-template-areas: "nav main aside";
 }
 
@@ -8,6 +7,7 @@
   grid-area: main;
   margin: 1rem;
   min-height: 80vh;
+  margin-bottom: 5rem;
 }
 
 .m-tb-1 {
@@ -25,11 +25,35 @@ li {
   top: 0;
   bottom: 0;
   left: 0;
-  right:0;
+  right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 3;
   background-color: black;
   background-color: rgba(0, 0, 0, 0.4);
+}
+
+@media only screen and (max-width: 1050px) {
+  :root {
+    font-size: 90%;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .page {
+    grid-template-areas: "nav main";
+  }
+  .aside {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .page {
+    grid-template-areas: "main";
+  }
+  .nav {
+    display: none;
+  }
 }

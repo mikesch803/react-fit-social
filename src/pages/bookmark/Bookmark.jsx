@@ -1,9 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Aside, Loader, Nav, PostCard } from "../../components";
+import { useTitle } from "../../hooks";
 import "./Bookmark.css";
 export function Bookmark() {
   const { bookmarks, loading } = useSelector((state) => state.bookmark);
+  useTitle("Bookmark")
   return (
     <div className="page">
       <Nav />

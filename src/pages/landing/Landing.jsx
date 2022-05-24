@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import { LoginForm, SignupForm } from "../../components";
 import { default as logo } from "../../assets/images/logo.png";
 import "./Landing.css";
-import { useForm } from "../../hooks/useForm";
 import { guestLogin, login, signup } from "../../reducers/authSlice";
+import { useForm, useTitle } from "../../hooks";
 export function Landing() {
   const { loginForm, setLoginForm } = useForm();
+
+  useTitle("Landing");
   return (
     <div className="landing-page">
       <main className="main-text">
@@ -19,7 +21,15 @@ export function Landing() {
         <p className="ft-grey">Share what you thinking.</p>
       </main>
       <main className="main-form">
-        {loginForm ? <LoginForm  setLoginForm={setLoginForm} guestLogin={guestLogin} login={login}/> : <SignupForm setLoginForm={setLoginForm} signup={signup}/>}
+        {loginForm ? (
+          <LoginForm
+            setLoginForm={setLoginForm}
+            guestLogin={guestLogin}
+            login={login}
+          />
+        ) : (
+          <SignupForm setLoginForm={setLoginForm} signup={signup} />
+        )}
       </main>
     </div>
   );

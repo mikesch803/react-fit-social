@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllPosts, closeEditModal } from "../../reducers/postSlice";
 import { Aside, EditPost, Loader, Nav, PostCard } from "../../components";
 import "./Explore.css";
+import { useTitle } from "../../hooks";
 export function Explore() {
   const { posts, loading, editModal, currPost } = useSelector(
     (state) => state.posts
   );
-
+useTitle("Explore");
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllPosts());
