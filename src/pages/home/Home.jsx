@@ -16,7 +16,6 @@ export function Home() {
   const { posts, loading, editModal, currPost } = useSelector(
     (state) => state.posts
   );
-  const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const latestPost = [...posts].reverse();
   useEffect(() => {
