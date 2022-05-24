@@ -34,7 +34,7 @@ export function PostCard({ item }) {
     <div className="post-card">
       <Avatar
         alt="avatar"
-        src={item.userAvatar}
+        src={item.username === user.username ? user.userAvatar : item.userAvatar}
         sx={{ width: 56, height: 56 }}
       />
       <div className="post-body">

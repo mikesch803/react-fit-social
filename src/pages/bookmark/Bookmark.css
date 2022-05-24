@@ -3,4 +3,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 1rem;
+}
+
+.flex-center > img {
+    
+    max-width:20rem;
 }
