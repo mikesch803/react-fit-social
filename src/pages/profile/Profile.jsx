@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { follow, unfollow } from "../../reducers/authSlice";
-import { Aside, EditProfileModal, Loader, Nav, PostCard } from "../../components";
+import { Aside, EditPost, EditProfileModal, Loader, Nav, PostCard } from "../../components";
 import { useParams } from "react-router-dom";
 import { checkFollowing } from "../../utils";
 import { userAvatar } from "../../assets/images/userAvatar";
 import Button from "@mui/material/Button";
 import "./Profile.css";
 import { useTitle } from "../../hooks";
+import {  closeEditModal } from "../../reducers/postSlice";
 export function Profile() {
   const { user } = useSelector((state) => state.auth);
-  const { posts, loading } = useSelector((state) => state.posts);
+  const { posts, loading,  editModal, currPost } = useSelector((state) => state.posts);
   const { users: allUsers } = useSelector((state) => state.users);
   const { username } = useParams();
 
@@ -94,6 +95,11 @@ useTitle("Profile")
             ))
         )}
       </main>
+        {editModal && (
+          <div className="modal-edit">
+            <EditPost currPost={currPost} closeEditModal={closeEditModal} />
+          </div>
+        )}
       <Aside />
     </div>
   );

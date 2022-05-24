@@ -32,15 +32,15 @@ export function PostCard({ item }) {
 
   return (
     <div className="post-card">
-      <Avatar
+      <Avatar onClick={() => {
+                  navigate(`/${item.username}`);
+                }}
         alt="avatar"
         src={item.username === user.username ? user.userAvatar : item.userAvatar}
-        sx={{ width: 56, height: 56 }}
+        sx={{ width: 56, height: 56, cursor:"pointer" }}
       />
       <div className="post-body">
-        <h3 className="post-user" onClick={() => {
-                  navigate(`/${item.username}`);
-                }}>
+        <h3 className="post-user" >
           {item.name} <span className="ft-w-300">@{item.username}</span>
           <span
             className="m-l-auto m-r-half"

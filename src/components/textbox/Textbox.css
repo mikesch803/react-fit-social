@@ -1,6 +1,5 @@
 .textbox-container {
-  max-width: 100%;
-  min-width: 30rem;
+  max-width: 37rem;
   display: flex;
   padding: 0.5rem;
   border-radius: var(--BORDER-RADIUS);

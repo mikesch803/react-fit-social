@@ -10,7 +10,7 @@ import {
   deleteComment,
   editComment,
 } from "../../reducers/postSlice";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { EditIcon, RemoveIcon } from "../../assets/icons/icons";
 import { Avatar, Button } from "@mui/material";
 import "./SinglePost.css";
@@ -24,8 +24,6 @@ export function SinglePost() {
   const { user: loggedInUser } = useSelector((state) => state.auth);
   const { PostId } = useParams();
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const location = useLocation();
   useEffect(() => {
     dispatch(getSinglePost(PostId));
     dispatch(getAllComments(PostId));
