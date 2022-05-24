@@ -7,6 +7,7 @@ import { checkFollowing } from "../../utils";
 import { userAvatar } from "../../assets/images/userAvatar";
 import Button from "@mui/material/Button";
 import "./Profile.css";
+import { useTitle } from "../../hooks";
 export function Profile() {
   const { user } = useSelector((state) => state.auth);
   const { posts, loading } = useSelector((state) => state.posts);
@@ -24,7 +25,9 @@ export function Profile() {
       setProfileUser(user);
     }
   }, [allUsers, user, profileUser, posts, username]);
-  console.log(posts);
+  
+useTitle("Profile")
+
   return (
     <div className="page">
       <Nav />

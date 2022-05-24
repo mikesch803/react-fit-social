@@ -9,6 +9,7 @@ import { getAllUsers } from "../../reducers/userSlice";
 import { follow, unfollow } from "../../reducers/authSlice";
 import { getThisUser } from "../../reducers/userSlice";
 import { useNavigate } from "react-router-dom";
+import { Avatar } from "@mui/material";
 export function Aside() {
   const navigate = useNavigate();
   const { users, loading } = useSelector((state) => state.users);
@@ -24,8 +25,9 @@ export function Aside() {
       : otherUsers(users, user).slice(0, 2);
   };
   return (
-    <div>
+
       <div className="aside">
+<div className="sidebar">
         <div className="aside-searchbox">
           <input placeholder="search post, people, anything" />
           <SearchIcon />
@@ -35,53 +37,47 @@ export function Aside() {
           <span
             className="m-l-auto btn-show-more"
             onClick={() => setShowMoreUsers(!showMoreUsers)}
-          >
+            >
             {showMoreUsers ? <>show less</> : <>show more</>}
           </span>
         </h3>
         <div className="follow-card">
           {loading ? (
             <Loader />
-          ) : (
-            showMoreHandler(users, user).map((item) => (
-              <div className="follow-user" key={item._id}>
-                <div className="avatar avatar-ss avatar-img">
-                  <img
-                    src={item.userAvatar ? item.userAvatar : userAvatar}
-                    alt="avatar"
-                    className="circle-img"
-                  />
-                </div>
-                <div>
+            ) : (
+              showMoreHandler(users, user).map((item) => (
+                <div className="follow-user" key={item._id} >
+                    <Avatar alt="avatar" src={item.userAvatar} sx={{marginRight:"0.5rem"}}/>
+        
+                <div onClick={() => {
+                  navigate(`/${item.username}`);
+                }}>
                   <h3
-                    onClick={() => {
-                      navigate(`/${item.username}`);
-                    }}
-                  >
+                    >
                     {item.firstName} {item.lastName}
                   </h3>
                   <span className="ft-w-300">@{item.username}</span>
                 </div>
                 {checkFollowing(user, item) ? (
                   <button
-                    className="m-l-auto"
-                    onClick={() => dispatch(unfollow(item))}
+                  className="m-l-auto"
+                  onClick={() => dispatch(unfollow(item))}
                   >
                     following
                   </button>
                 ) : (
                   <button
-                    className="m-l-auto"
-                    onClick={() => dispatch(follow(item))}
+                  className="m-l-auto"
+                  onClick={() => dispatch(follow(item))}
                   >
                     follow+
                   </button>
                 )}
               </div>
             ))
-          )}
+            )}
         </div>
-      </div>
-    </div>
+        </div>
+  </div>
   );
 }

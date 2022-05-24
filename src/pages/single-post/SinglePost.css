@@ -8,10 +8,12 @@
 }
 
 .comment-box {
-    margin: 0.5rem 0;
+    margin-top: 1rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    max-width: 100%;
+    min-width: 30rem;
 }
 
 .reply-icons > button{
@@ -26,4 +28,18 @@
 
 .reply-icons {
     margin-left: auto;
+}
+
+.mr-half {
+    margin-right: 0.5rem;
+}
+
+.comments {
+    margin-top: 1rem;
+    max-width: 100%;
+    min-width: 30rem;
+}
+
+Button.btn-reply {
+    background-color: var(--COLOR-PRIMARY);
 }

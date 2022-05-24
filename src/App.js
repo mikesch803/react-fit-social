@@ -14,6 +14,7 @@ import {
 import Mockman from "mockman-js";
 import { injectStyle } from "react-toastify/dist/inject-style";
 import { ToastContainer } from "react-toastify";
+import { NavbarBottom } from "./components";
 
 function App() {
   if (typeof window !== "undefined") {
@@ -35,6 +36,7 @@ function App() {
           </Route>
         </Route>
       </Routes>
+      <NavbarBottom/>
       <ToastContainer autoClose={2000} />
     </div>
   );

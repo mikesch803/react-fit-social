@@ -1,5 +1,11 @@
 .aside {
   grid-area: aside;
+  max-width: 100%;
+  min-width: 20rem;
+  margin: 0 1rem;
+}
+
+.sidebar {
   position: sticky;
   top: 5rem;
   z-index: 2;
@@ -24,6 +30,8 @@
   flex-direction: column;
   background-color: var(--COLOR-FT);
   border-radius: var(--BORDER-RADIUS);
+  flex-wrap: wrap;
+  cursor: pointer;
 }
 
 .follow-user {
@@ -58,8 +66,11 @@
   background: none;
   color: var(--COLOR-PRIMARY);
   border: none;
+  cursor: pointer;
 }
 
 .btn-show-more {
   cursor: pointer;
 }
+
+

@@ -11,15 +11,20 @@ import {
   Textbox,
 } from "../../components";
 import "./Home.css";
+import { useTitle } from "../../hooks";
 export function Home() {
   const { posts, loading, editModal, currPost } = useSelector(
     (state) => state.posts
   );
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+  const latestPost = [...posts].reverse();
   useEffect(() => {
     dispatch(getAllPosts());
-  }, []);
+  }, [dispatch]);
+
+  useTitle("Home");
+
   const [filter, setFilter] = React.useState("Latest");
 
   const filterHandler = (event) => {
@@ -34,13 +39,11 @@ export function Home() {
         {loading ? (
           <Loader />
         ) : filter === "Latest" && posts.length !== 0 ? (
-          posts
-            .filter((ele) => ele.username === user.username)
-            .map((item) => (
-              <li key={item._id}>
-                <PostCard item={item} />
-              </li>
-            ))
+          latestPost.map((item) => (
+            <li key={item._id}>
+              <PostCard item={item} />
+            </li>
+          ))
         ) : (
           posts
             .filter((ele) => ele.likes.likeCount >= 1000)

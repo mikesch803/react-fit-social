@@ -1,1 +1,1 @@
-export const checkLikedByUser = (thispost,loggedInUser) => thispost.likes.likedBy.some(ele => ele.username === loggedInUser.username);
+export const checkLikedByUser = (thispost,loggedInUser) => thispost.likes?.likedBy.some(ele => ele.username === loggedInUser.username);

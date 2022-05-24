@@ -5,18 +5,18 @@ import "./Textbox.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addPost } from "../../reducers/postSlice";
 import { userAvatar } from "../../assets/images/userAvatar";
+import { Avatar } from "@mui/material";
+import { InsertEmoticon } from "@mui/icons-material";
 
 export function Textbox() {
   const {user} = useSelector(state => state.auth);
-  const [postContent, setPostContent] = useState({name:user.firstName+" "+user.lastName})
+  const [postContent, setPostContent] = useState({name:user.firstName+" "+user.lastName, userAvatar:user.userAvatar})
   const dispatch = useDispatch()
   return (
     <div className="textbox-container">
       <div className="avatar avatar-ms m-r-half">
-        <img src={user.userAvatar?user.userAvatar:userAvatar}
-          alt="avatar"
-          className="circle-img"
-        />
+        <Avatar src={user.userAvatar} alt="avatar"
+  sx={{ width: 56, height: 56 }}/>
       </div>
       <div className="textbox-body">
         <textarea

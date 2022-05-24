@@ -1,5 +1,6 @@
 .post-card {
-    max-width: 37.5rem;
+    max-width: 100%;
+    min-width: 27rem;
     padding: 1rem;
     display: flex;
     border-radius: var(--BORDER-RADIUS);
@@ -7,8 +8,9 @@
 }
 
 .post-body {
-    flex-grow: 1;
+    flex: 1;
     position: relative;
+    margin-left: 0.5rem;
 }
 
 .post-avatar {
@@ -22,7 +24,7 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 0.5rem;
-
+    cursor: pointer;
 }
 
 .m-l-auto {
@@ -39,11 +41,13 @@
     justify-content: space-between;
     margin: 0.5rem 0.5rem 0 0.5rem;
     font-size: 1.2rem;
+
 }
 
 .post-icon {
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .post-icon > span {

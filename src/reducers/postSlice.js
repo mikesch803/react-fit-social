@@ -38,6 +38,7 @@ export const addPost = createAsyncThunk(
         }
       );
       toast('New post added')
+      console.log(response.data.posts)
       return response.data.posts;
     } catch (err) {
       return rejectWithValue(err);
