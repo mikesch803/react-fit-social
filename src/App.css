@@ -1,17 +1,17 @@
 @import url("https://component-site-fitui.netlify.app/components/components.css");
 :root {
-    --COLOR-PRIMARY : #00c9ff;
-    --COLOR-PRIMARY-DARK : #03b9ec;
+  --COLOR-PRIMARY: #00c9ff;
+  --COLOR-PRIMARY-DARK: #03b9ec;
 }
 
 .App {
-    max-width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-@media only screen and (max-width: 650px) {
-    .App {
-        max-width: 100%;
-    }
+@media only screen and (max-width: 1050px) {
+  .App {
+    max-width: 100%;
   }
+}
