@@ -5,3 +5,5 @@ export {Bookmark} from './bookmark/Bookmark';
 export {NotFound} from './404/NotFound';
 export {Landing} from './landing/Landing';
 export {WithHeader} from './withHeader/WithHeader';
+export {SinglePost} from './single-post/SinglePost';
+export {RequireAuth} from './auth/RequireAuth';

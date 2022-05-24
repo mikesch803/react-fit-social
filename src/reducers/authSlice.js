@@ -109,6 +109,7 @@ export const editUserProfile = createAsyncThunk("auth/editUserProfile", async (u
   }
 });
 
+
 export const authSlice = createSlice({
   name: "auth",
   initialState,

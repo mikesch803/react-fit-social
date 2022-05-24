@@ -13,7 +13,7 @@ import { userAvatar } from "../../assets/images/userAvatar";
 import { PostCardOptions } from "../card-options/PostCardOptions";
 import { addToBookmark, removeFromBookmark } from "../../reducers/bookmarkSlice";
 
-import { likePost, dislikePost } from "../../reducers/postSlice";
+import { likePost, dislikePost, getSinglePost, addComment } from "../../reducers/postSlice";
 import "./PostCard.css";
 import { checkBookmark, checkLikedByUser } from "../../utils";
 import { useNavigate } from "react-router-dom";
@@ -22,7 +22,7 @@ export function PostCard({item}) {
   const {bookmarks} = useSelector(state => state.bookmark);
   const {user} = useSelector(state => state.auth);
   const dispatch = useDispatch();
-  
+  const navigate = useNavigate();
   return (
     <div className="post-card">
       <img
@@ -37,7 +37,7 @@ export function PostCard({item}) {
           <span className="m-l-auto m-r-half" 
           onClick={()=>setPostCardOption(!postCardOption)}
           >
-            <OptionIcon />   
+          {user.username === item.username &&  <OptionIcon />  }
           </span>
         </h3>
         { postCardOption && <PostCardOptions item={item}/> }
@@ -45,20 +45,22 @@ export function PostCard({item}) {
           {item.content}
         </p>
         <div className="post-icons">
-          {checkLikedByUser(item, user) ? 
+          {item.likes?.likedBy.some(ele => ele.username === user.username)
+          //  { checkLikedByUser(item, user) 
+          ? 
             <span className="post-icon" onClick={()=>dispatch(dislikePost(item))}>
             <FillHeartIcon /> <span className="">
-              {item.likes.likeCount > 0 && item.likes.likeCount}
+              {item.likes?.likeCount > 0 && item.likes?.likeCount}
               </span>
           </span> :
 
           <span className="post-icon" onClick={()=>dispatch(likePost(item))}>
             <HeartLineIcon /> <span className="">
-              {item.likes.likeCount > 0 && item.likes.likeCount}
+              {item.likes?.likeCount > 0 && item.likes?.likeCount}
               </span>
           </span>
           }
-          <span className="post-icon">
+          <span className="post-icon" onClick={()=>{ navigate(`/post/${item._id}`)}}>
             <CommentIcon />
           </span>
           <span className="post-icon">

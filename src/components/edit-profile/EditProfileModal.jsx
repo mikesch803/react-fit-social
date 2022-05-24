@@ -5,8 +5,8 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import './EditProfileModal.css'
 import { editUserProfile } from '../../reducers/authSlice';
-import { TextField } from '@mui/material';
 import { useDispatch } from 'react-redux';
+import { CameraIcon } from '../../assets/icons/icons';
 const style = {
   position: 'absolute',
   top: '50%',
@@ -24,8 +24,16 @@ export function EditProfileModal({profileUser}) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const dispatch = useDispatch()
-const [editProfile, setEditProfile] = React.useState({...profileUser})
+  const [editProfile, setEditProfile] = React.useState({...profileUser})
+  const [imgFile, setImgFile] = React.useState("");
+  const [imgURL, setImgURL] = React.useState(editProfile.userAvatar)
 console.log(editProfile)
+
+React.useEffect(()=>{
+    if(imgFile === "") return;
+    setImgURL(URL.createObjectURL(imgFile))
+    setEditProfile({editProfile, userAvatar:imgURL})
+},[imgFile])
   return (
     <div>
       <Button onClick={handleOpen} 
@@ -41,6 +49,13 @@ console.log(editProfile)
             Edit Profile
             <Button variant='contained' className='btn-save' onClick={()=>{ dispatch(editUserProfile(editProfile));handleClose()} }>save</Button>
           </Typography>
+          <div className='profile-avatar'>
+          <img
+            src={imgURL}
+            alt="profile-pic"
+            className="profile-img edit-profile-pic mb-half"
+          />
+              <input className='input-file' type="file" onChange={e=>setImgFile(e.target.files[0])}/><button className='btn btn-icon'><CameraIcon/></button></div>
           <label className='ft-grey'>First Name</label>
           <input  className='form-input mb-half' name='firstName' value={editProfile.firstName} onChange={(e)=>setEditProfile({...profileUser, [e.target.name]:e.target.value})}/>
           <label className='ft-grey'>Last Name</label>
