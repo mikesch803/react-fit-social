@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { PasswordNotShowIcon } from "../../assets/icons/icons";
+import { PasswordNotShowIcon, PasswordShowIcon } from "../../assets/icons/icons";
 import { Link } from "react-router-dom";
 import "./LoginForm.css";
 import { useDispatch, useSelector } from "react-redux";
+import { useForm } from "../../hooks";
 export function LoginForm({ setLoginForm, guestLogin, login }) {
   const navigate = useNavigate();
   const location = useLocation();
@@ -18,6 +19,8 @@ export function LoginForm({ setLoginForm, guestLogin, login }) {
     username: "",
     password: "",
   });
+
+  const { passwordHidden, setPasswordHidden} = useForm();
 
   const loginHandler = (e) => {
     e.preventDefault(e);
@@ -43,6 +46,7 @@ export function LoginForm({ setLoginForm, guestLogin, login }) {
       <div className="parent-div">
         <input
           required
+          type={passwordHidden ? "password" : "text"}
           placeholder="password"
           className="form-input flex-1"
           name="password"
@@ -50,8 +54,8 @@ export function LoginForm({ setLoginForm, guestLogin, login }) {
             setFormDetail({ ...formDetail, [e.target.name]: e.target.value })
           }
         />
-        <button className="form-passwordeye">
-          <PasswordNotShowIcon />
+        <button className="form-passwordeye" onClick={()=>setPasswordHidden(!passwordHidden)}>
+         {passwordHidden ? <PasswordNotShowIcon /> : <PasswordShowIcon/>}
         </button>
       </div>
       <div className="form-checkbox">
