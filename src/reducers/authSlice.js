@@ -28,7 +28,7 @@ export const login = createAsyncThunk(
   async (field,{rejectWithValue}) => {
     try {
       const response = await axios.post(`/api/auth/login`, field);
-    toast('Login successfully!')
+      toast('Login successfully!');
       return response.data;
     } catch (error) {
       return rejectWithValue(error)

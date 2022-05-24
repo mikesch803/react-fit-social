@@ -10,11 +10,12 @@ import {
   deleteComment,
   editComment,
 } from "../../reducers/postSlice";
-import { useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { EditIcon, RemoveIcon } from "../../assets/icons/icons";
 import { Avatar, Button } from "@mui/material";
 import "./SinglePost.css";
 import { useTitle } from "../../hooks";
+import { editAndRemoveOptions } from "../../utils";
 export function SinglePost() {
   const { editModal, currPost, singlePost } = useSelector(
     (state) => state.posts
@@ -23,10 +24,13 @@ export function SinglePost() {
   const { user: loggedInUser } = useSelector((state) => state.auth);
   const { PostId } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
   useEffect(() => {
     dispatch(getSinglePost(PostId));
     dispatch(getAllComments(PostId));
   }, [PostId, dispatch, singlePost]);
+
 
   const [comment, setComment] = useState({
     item: PostId,
@@ -34,7 +38,6 @@ export function SinglePost() {
     editReplyState: false,
   });
 
-  
 useTitle("Post");
 
   return (
@@ -96,7 +99,8 @@ useTitle("Post");
                 <h3>{ele.username}</h3>
                 <p>{ele.text}</p>
               </div>
-              {users?.filter((item) => item.username === ele.username)[0] && (
+              { editAndRemoveOptions(users, loggedInUser, ele)
+               && (
                 <div className="reply-icons">
                   <button
                     className="reply-icon"

@@ -59,4 +59,8 @@
     margin-left: auto;
     margin-right: auto;
   }
+
+  .main-form {
+    margin-bottom: 5rem;
+  }
 }
