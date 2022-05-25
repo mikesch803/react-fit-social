@@ -29,7 +29,7 @@
 ## **Built with following tech stack -**
 
 - React JS
-- React toolkit
+- Redux toolkit
 - React Router v6
 - Material UI
 - [FIT UI COMPONENT LIBRARY](https://fit-ui.netlify.app/)
