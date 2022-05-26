@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { SearchIcon } from "../../assets/icons/icons";
-import { userAvatar } from "../../assets/images/userAvatar";
 import { checkFollowing, otherUsers } from "../../utils";
 import { Loader } from "../loader/Loader";
 import "./Aside.css";
 import { getAllUsers } from "../../reducers/userSlice";
 import { follow, unfollow } from "../../reducers/authSlice";
-import { getThisUser } from "../../reducers/userSlice";
 import { useNavigate } from "react-router-dom";
 import { Avatar } from "@mui/material";
 export function Aside() {

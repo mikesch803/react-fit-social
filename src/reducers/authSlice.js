@@ -13,8 +13,8 @@ export const guestLogin = createAsyncThunk("auth/guestLogin", async (e,{rejectWi
   e.preventDefault();
   try {
     const response = await axios.post(`/api/auth/login`, {
-      username: "jeetselal",
-      password: "jeetselal",
+      username: "mikesch_34",
+      password: "mahendra",
     });
     toast('Login successfully!')
     return response.data;
