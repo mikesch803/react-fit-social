@@ -4,11 +4,11 @@ import { follow, unfollow } from "../../reducers/authSlice";
 import { Aside, EditPost, EditProfileModal, Loader, Nav, PostCard } from "../../components";
 import { useParams } from "react-router-dom";
 import { checkFollowing } from "../../utils";
-import { userAvatar } from "../../assets/images/userAvatar";
 import Button from "@mui/material/Button";
 import "./Profile.css";
 import { useTitle } from "../../hooks";
 import {  closeEditModal } from "../../reducers/postSlice";
+import { Avatar } from "@mui/material";
 export function Profile() {
   const { user } = useSelector((state) => state.auth);
   const { posts, loading,  editModal, currPost } = useSelector((state) => state.posts);
@@ -34,8 +34,8 @@ useTitle("Profile")
       <Nav />
       <main className="main">
         <div className="profile-detail-container m-tb-1">
-          <img
-            src={profileUser.userAvatar ? profileUser.userAvatar : userAvatar}
+          <Avatar sx={{width:56, height:56}}
+            src={profileUser.userAvatar}
             alt="profile-pic"
             className="profile-img"
           />

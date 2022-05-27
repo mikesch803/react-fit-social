@@ -4,9 +4,7 @@ import { EmojiIcon, GifIcon, ImageIcon } from "../../assets/icons/icons";
 import "./Textbox.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addPost } from "../../reducers/postSlice";
-import { userAvatar } from "../../assets/images/userAvatar";
 import { Avatar } from "@mui/material";
-import { InsertEmoticon } from "@mui/icons-material";
 
 export function Textbox() {
   const {user} = useSelector(state => state.auth);
