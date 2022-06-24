@@ -1,34 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Aside, EditPost, Nav, PostCard } from "../../components";
 import {
-  getSinglePost,
   closeEditModal,
   getAllPosts,
   addComment,
-  getAllComments,
   deleteComment,
   editComment,
 } from "../../reducers/postSlice";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { EditIcon, RemoveIcon } from "../../assets/icons/icons";
 import { Avatar, Button } from "@mui/material";
 import "./SinglePost.css";
 import { useTitle } from "../../hooks";
 import { editAndRemoveOptions } from "../../utils";
 export function SinglePost() {
-  const { editModal, currPost, singlePost } = useSelector(
-    (state) => state.posts
-  );
+  const { editModal, currPost, posts } = useSelector((state) => state.posts);
   const { users } = useSelector((state) => state.users);
   const { user: loggedInUser } = useSelector((state) => state.auth);
   const { PostId } = useParams();
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getSinglePost(PostId));
-    dispatch(getAllComments(PostId));
-  }, [PostId, dispatch, singlePost]);
 
+  const singlePost = posts?.find((item) => item._id === PostId);
 
   const [comment, setComment] = useState({
     item: PostId,
@@ -36,7 +29,11 @@ export function SinglePost() {
     editReplyState: false,
   });
 
-useTitle("Post");
+  useTitle("Post");
+
+  if (singlePost === undefined) {
+    return <Navigate to="/home" />;
+  }
 
   return (
     <div className="page">
@@ -84,7 +81,7 @@ useTitle("Post");
           )}
         </div>
         <ul className="mr-half comments">
-          {singlePost.comments?.map((ele) => (
+          {singlePost?.comments?.map((ele) => (
             <li className="reply-input follow-user" key={ele._id}>
               <Avatar
                 alt="Remy Sharp"
@@ -97,8 +94,7 @@ useTitle("Post");
                 <h3>{ele.username}</h3>
                 <p>{ele.text}</p>
               </div>
-              { editAndRemoveOptions(users, loggedInUser, ele)
-               && (
+              {editAndRemoveOptions(users, loggedInUser, ele) && (
                 <div className="reply-icons">
                   <button
                     className="reply-icon"

@@ -17,10 +17,10 @@ export function Home() {
     (state) => state.posts
   );
   const dispatch = useDispatch();
-  const latestPost = [...posts].reverse();
   useEffect(() => {
     dispatch(getAllPosts());
   }, [dispatch]);
+  const latestPost = [...posts].reverse();
 
   useTitle("Home");
 
@@ -38,7 +38,7 @@ export function Home() {
         {loading ? (
           <Loader />
         ) : filter === "Latest" && posts.length !== 0 ? (
-          latestPost.map((item) => (
+          latestPost?.map((item) => (
             <li key={item._id}>
               <PostCard item={item} />
             </li>
@@ -54,7 +54,7 @@ export function Home() {
         )}
 
         {editModal && (
-          <div className="modal-edit">
+          <div className="modal-edit" onClick={()=>dispatch(closeEditModal())}>
             <EditPost currPost={currPost} closeEditModal={closeEditModal} />
           </div>
         )}

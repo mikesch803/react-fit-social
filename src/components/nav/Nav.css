@@ -1,7 +1,6 @@
 .nav {
   grid-area: nav;
   margin: 0rem 1rem;
-  max-width: 17rem;
 }
 
 .sidebar {

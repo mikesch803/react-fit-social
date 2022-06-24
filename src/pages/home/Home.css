@@ -1,15 +1,15 @@
 .page {
   display: grid;
+  grid-template-columns: 250px 1fr 350px;
   grid-template-areas: "nav main aside";
 }
 
 .main {
   grid-area: main;
   min-height: 80vh;
-  margin-bottom: 5rem;
-  max-width: 37rem;
-  margin-left: auto;
-  margin-right: auto;
+  margin-bottom: 1rem;
+  max-width: 100%;
+  margin: 1rem;
 }
 
 .m-tb-1 {
@@ -22,7 +22,6 @@ li {
 }
 
 .modal-edit {
-  border: 1px solid red;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -40,11 +39,15 @@ li {
   :root {
     font-size: 90%;
   }
+  .page {
+    grid-template-columns: 200px 1fr 300px;
+  }
 }
 
 @media only screen and (max-width: 960px) {
   .page {
-    grid-template-areas: "nav main";
+    /* grid-template-columns: 1fr 3fr; */
+    grid-template-areas: "nav main main";
   }
   .aside {
     display: none;
@@ -53,7 +56,8 @@ li {
 
 @media only screen and (max-width: 650px) {
   .page {
-    grid-template-areas: "main";
+    /* grid-template-columns: auto; */
+    grid-template-areas: "main main main";
   }
   .nav {
     display: none;

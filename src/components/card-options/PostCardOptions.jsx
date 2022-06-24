@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
@@ -11,6 +11,7 @@ import { deletePost, openEditModal } from "../../reducers/postSlice";
 export function PostCardOptions({ item, setPostCardOption }) {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
+
   return (
     <Box
       className="box-option"
@@ -42,7 +43,7 @@ export function PostCardOptions({ item, setPostCardOption }) {
               </ListItem>
 
               <ListItem disablePadding>
-                <ListItemButton onClick={() => dispatch(openEditModal(item))}>
+                <ListItemButton onClick={() => { dispatch(openEditModal(item)); setPostCardOption(false)}}>
                   <ListItemIcon sx={{ fontSize: "1.5rem", color: "inherit" }}>
                     <EditIcon />
                   </ListItemIcon>

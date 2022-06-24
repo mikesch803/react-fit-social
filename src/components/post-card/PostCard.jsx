@@ -6,8 +6,7 @@ import {
   CommentIcon,
   FillHeartIcon,
   HeartLineIcon,
-  OptionIcon,
-  ShareIcon,
+  OptionIcon
 } from "../../assets/icons/icons";
 import { PostCardOptions } from "../card-options/PostCardOptions";
 import {
@@ -31,17 +30,19 @@ export function PostCard({ item }) {
   const navigate = useNavigate();
 
   return (
-    <div className="post-card">
+    <div className="post-card" >
       <Avatar onClick={() => {
-                  navigate(`/${item.username}`);
+                  navigate(`/profile/${item.username}`);
                 }}
         alt="avatar"
-        src={item.username === user.username ? user.userAvatar : item.userAvatar}
+        src={item.username === user.username ? user?.userAvatar : item?.userAvatar}
         sx={{ width: 56, height: 56, cursor:"pointer" }}
       />
       <div className="post-body">
-        <h3 className="post-user" >
-          {item.name} <span className="ft-w-300">@{item.username}</span>
+        <h3 className="post-user ft-w-600" >
+          {item.name} <span className="ft-w-400 ft-grey" onClick={() => {
+                  navigate(`/profile/${item.username}`);
+                }}>@{item.username}</span>
           <span
             className="m-l-auto m-r-half"
             onClick={() => setPostCardOption(!postCardOption)}
@@ -49,55 +50,52 @@ export function PostCard({ item }) {
             {user.username === item.username && <OptionIcon />}
           </span>
         </h3>
-        {postCardOption && <PostCardOptions item={item} />}
+        {postCardOption && <PostCardOptions item={item} setPostCardOption={setPostCardOption}/>}
         <p className="post-content">{item.content}</p>
         <div className="post-icons">
             { checkLikedByUser(item, user) ? (
-            <span
+            <button
               className="post-icon"
               onClick={() => dispatch(dislikePost(item))}
             >
-              <FillHeartIcon />{" "}
-              <span className="">
+              <FillHeartIcon />
+              <span>
                 {item.likes?.likeCount > 0 && item.likes?.likeCount}
               </span>
-            </span>
+            </button>
           ) : (
-            <span
+            <button
               className="post-icon"
               onClick={() => dispatch(likePost(item))}
             >
-              <HeartLineIcon />{" "}
-              <span className="">
+              <HeartLineIcon />
+              <span>
                 {item.likes?.likeCount > 0 && item.likes?.likeCount}
               </span>
-            </span>
+            </button>
           )}
-          <span
-            className="post-icon"
+          <button
+            className="post-icon ft-grey"
             onClick={() => {
               navigate(`/post/${item._id}`);
             }}
           >
             <CommentIcon />
-          </span>
-          <span className="post-icon">
-            <ShareIcon />
-          </span>
+          </button>
           {checkBookmark(bookmarks, item) ? (
-            <span
-              className="post-icon"
+            <button
+              className="post-icon ft-grey"
               onClick={() => dispatch(addToBookmark(item))}
             >
               <BookmarkIcon />
-            </span>
+            </button>
           ) : (
-            <span
-              className="post-icon"
+            <button
+              className="post-icon ft-grey"
               onClick={() => dispatch(removeFromBookmark(item))}
             >
               <BookmarkSolidIcon />
-            </span>
+            </button>
           )}
         </div>
       </div>

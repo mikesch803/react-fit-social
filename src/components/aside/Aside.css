@@ -1,7 +1,5 @@
 .aside {
   grid-area: aside;
-  max-width: 100%;
-  min-width: 20rem;
   margin: 0 1rem;
 }
 
@@ -9,15 +7,6 @@
   position: sticky;
   top: 5rem;
   z-index: 2;
-}
-
-.aside-searchbox {
-  display: flex;
-  /* border: 1px solid #e0dede; */
-  align-items: center;
-  padding: 0.5rem;
-  background-color: var(--COLOR-FT);
-  margin-top: 1rem;
 }
 
 .aside-searchbox input {
@@ -72,5 +61,3 @@
 .btn-show-more {
   cursor: pointer;
 }
-
-

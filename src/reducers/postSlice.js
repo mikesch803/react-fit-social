@@ -6,9 +6,8 @@ const initialState = {
   posts: [],
   loading: false,
   error: "",
-  editModal:false,
-  currPost:{}, //for edit post
-  singlePost:{} //for single post page
+  editModal: false,
+  currPost: {}, //for edit post
 };
 
 export const getAllPosts = createAsyncThunk("posts/getAllPosts", async () => {
@@ -29,7 +28,7 @@ export const addPost = createAsyncThunk(
       const response = await axios.post(
         "/api/posts",
         {
-          postData:post,
+          postData: post,
         },
         {
           headers: {
@@ -37,7 +36,7 @@ export const addPost = createAsyncThunk(
           },
         }
       );
-      toast('New post added')
+      toast("New post added");
       return response.data.posts;
     } catch (err) {
       return rejectWithValue(err);
@@ -51,15 +50,12 @@ export const deletePost = createAsyncThunk(
     try {
       const token = localStorage.getItem("token");
 
-      const response = await axios.delete(
-        `/api/posts/${post._id}`,
-        {
-          headers: {
-            authorization: token,
-          },
-        }
-      );
-      toast('Post deleted')
+      const response = await axios.delete(`/api/posts/${post._id}`, {
+        headers: {
+          authorization: token,
+        },
+      });
+      toast("Post deleted");
       return response.data.posts;
     } catch (err) {
       return rejectWithValue(err);
@@ -70,14 +66,13 @@ export const deletePost = createAsyncThunk(
 export const editPost = createAsyncThunk(
   "posts/editPost",
   async (post, { rejectWithValue }) => {
-
     try {
       const token = localStorage.getItem("token");
 
       const response = await axios.post(
         `/api/posts/edit/${post._id}`,
         {
-          postData : post,
+          postData: post,
         },
         {
           headers: {
@@ -85,7 +80,7 @@ export const editPost = createAsyncThunk(
           },
         }
       );
-      toast('Post updated')
+      toast("Post updated");
       return response.data.posts;
     } catch (err) {
       return rejectWithValue(err);
@@ -101,15 +96,14 @@ export const likePost = createAsyncThunk(
 
       const response = await axios.post(
         `/api/posts/like/${post._id}`,
-        {
-        },
+        {},
         {
           headers: {
             authorization: token,
           },
         }
       );
-      toast('Post liked')
+      toast("Post liked");
       return response.data.posts;
     } catch (err) {
       return rejectWithValue(err);
@@ -118,21 +112,20 @@ export const likePost = createAsyncThunk(
 );
 
 export const dislikePost = createAsyncThunk(
-  "posts/dislike",
+  "posts/dislikePost",
   async (post, { rejectWithValue }) => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
         `/api/posts/dislike/${post._id}`,
-        {
-        },
+        {},
         {
           headers: {
             authorization: token,
           },
         }
       );
-      toast('Post disliked')
+      toast("Post disliked");
       return response.data.posts;
     } catch (err) {
       return rejectWithValue(err);
@@ -140,35 +133,17 @@ export const dislikePost = createAsyncThunk(
   }
 );
 
-export const getSinglePost = createAsyncThunk("posts/getSinglePost",
-async (id, {rejectWithValue}) => {
-  try {
-    const token = localStorage.getItem('token');
-    const response = await axios.get(`/api/posts/${id}`,{
-      headers : {
-        authorization : token
-      }
-    })
-    return response.data.post
-  } catch(err) {
-    return rejectWithValue(err)
-  }
-})
-
 export const getAllComments = createAsyncThunk(
   "posts/getAllComments",
-  async (id,{ rejectWithValue }) => {
+  async (id, { rejectWithValue }) => {
     try {
       const token = localStorage.getItem("token");
 
-      const response = await axios.get(
-        `/api/comments/${id}`,
-        {
-          headers: {
-            authorization: token,
-          },
-        }
-      );
+      const response = await axios.get(`/api/comments/${id}`, {
+        headers: {
+          authorization: token,
+        },
+      });
       return response.data.comments;
     } catch (err) {
       return rejectWithValue(err);
@@ -178,56 +153,58 @@ export const getAllComments = createAsyncThunk(
 
 export const addComment = createAsyncThunk(
   "posts/addComment",
-  async ({item, reply}, { rejectWithValue }) => {
-    if(reply.trim("")!==""){
-    try {
-      const token = localStorage.getItem("token");
+  async ({ item, reply }, { rejectWithValue }) => {
+    if (reply.trim("") !== "") {
+      try {
+        const token = localStorage.getItem("token");
 
-      const response = await axios.post(
-        `/api/comments/add/${item}`,
-        {
-          commentData:{text:reply}
-        },
-        {
-          headers: {
-            authorization: token,
+        const response = await axios.post(
+          `/api/comments/add/${item}`,
+          {
+            commentData: { text: reply },
           },
-        }
-      );
-      toast('comment added')
-      return response.data.posts;
-    } catch (err) {
-      return rejectWithValue(err);
+          {
+            headers: {
+              authorization: token,
+            },
+          }
+        );
+        toast("comment added");
+        return response.data.posts;
+      } catch (err) {
+        return rejectWithValue(err);
+      }
+    } else {
+      toast("Please add comment");
     }
   }
-}
 );
 
 export const editComment = createAsyncThunk(
-  "posts/addComment",
-  async ({item, reply, commentId}, { rejectWithValue }) => {
-    if(reply.trim("")!==""){
-    try {
-      const token = localStorage.getItem("token");
+  "posts/editComment",
+  async ({ item, reply, commentId }, { rejectWithValue }) => {
+    if (reply.trim("") !== "") {
+      try {
+        const token = localStorage.getItem("token");
 
-      const response = await axios.post(
-        `/api/comments/edit/${item}/${commentId}`,
-        {
-          commentData:{text:reply}
-        },
-        {
-          headers: {
-            authorization: token,
+        const response = await axios.post(
+          `/api/comments/edit/${item}/${commentId}`,
+          {
+            commentData: { text: reply },
           },
-        }
-      );
-      toast('comment updated')
-      return response.data.posts;
-    } catch (err) {
-      return rejectWithValue(err);
+          {
+            headers: {
+              authorization: token,
+            },
+          }
+        );
+        toast("comment updated");
+        return response.data.posts;
+      } catch (err) {
+        return rejectWithValue(err);
+      }
     }
   }
-}
 );
 
 export const deleteComment = createAsyncThunk(
@@ -237,15 +214,16 @@ export const deleteComment = createAsyncThunk(
       const token = localStorage.getItem("token");
 
       const response = await axios.post(
-        `/api/comments/delete/${item.PostId}/${item.ele._id}`,{},
+        `/api/comments/delete/${item.PostId}/${item.ele._id}`,
+        {},
         {
           headers: {
             authorization: token,
           },
         }
       );
-      toast('comment deleted')
-      return response.data.comments;
+      toast("comment deleted");
+      return response.data.posts;
     } catch (err) {
       return rejectWithValue(err);
     }
@@ -255,12 +233,12 @@ export const deleteComment = createAsyncThunk(
 export const postSlice = createSlice({
   name: "posts",
   initialState,
-  reducers:{
-    openEditModal:(state,action)=> {
+  reducers: {
+    openEditModal: (state, action) => {
       state.currPost = action.payload;
       state.editModal = true;
     },
-    closeEditModal:(state)=>{
+    closeEditModal: (state) => {
       state.editModal = false;
     },
   },
@@ -309,42 +287,19 @@ export const postSlice = createSlice({
       state.loading = false;
       state.error = action.error;
     },
-    [likePost.pending]: (state) => {
-      state.loading = true;
-    },
     [likePost.fulfilled]: (state, action) => {
-      state.loading = false;
       state.posts = action.payload;
     },
     [likePost.rejected]: (state, action) => {
-      state.loading = false;
       state.error = action.error;
-
-    },
-    [dislikePost.pending]: (state) => {
-      state.loading = true;
     },
     [dislikePost.fulfilled]: (state, action) => {
-      state.loading = false;
       state.posts = action.payload;
     },
     [dislikePost.rejected]: (state, action) => {
-      state.loading = false;
       state.error = action.error;
     },
 
-    [getSinglePost.pending]: (state) => {
-      state.loading = true;
-    },
-    [getSinglePost.fulfilled]: (state, action) => {
-      state.loading = false;
-      state.singlePost = action.payload;
-    },
-    [getSinglePost.rejected]: (state, action) => {
-      state.loading = false;
-      state.error = action.error;
-    },
-    
     [addComment.pending]: (state) => {
       state.loading = true;
     },
@@ -370,6 +325,6 @@ export const postSlice = createSlice({
   },
 });
 
-export const {openEditModal, closeEditModal} = postSlice.actions;
+export const { openEditModal, closeEditModal } = postSlice.actions;
 
 export default postSlice.reducer;
