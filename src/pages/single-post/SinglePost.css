@@ -1,45 +1,43 @@
 .reply-input {
-    padding: 0.5rem;
-    border-radius: var(--BORDER-RADIUS);
-    border: none;  
-    width: 100%;
-    background-color: var(--COLOR-FT);
-    gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: var(--BORDER-RADIUS);
+  border: none;
+  width: 100%;
+  background-color: var(--COLOR-FT);
+  gap: 0.5rem;
 }
 
 .comment-box {
-    margin-top: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    max-width: 100%;
-    min-width: 30rem;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 100%;
 }
 
-.reply-icons > button{
-    font-size: 1.2rem;
-    margin-right: 0.5rem;
-    color: black;
+.reply-icons > button {
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+  color: black;
 }
 
-.reply-icons > button+button {
-    color: red;
+.reply-icons > button + button {
+  color: red;
 }
 
 .reply-icons {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .mr-half {
-    margin-right: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .comments {
-    margin-top: 1rem;
-    max-width: 100%;
-    min-width: 30rem;
+  margin-top: 1rem;
+  max-width: 100%;
 }
 
 Button.btn-reply {
-    background-color: var(--COLOR-PRIMARY);
+  background-color: var(--COLOR-PRIMARY);
 }

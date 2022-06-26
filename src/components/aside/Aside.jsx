@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { SearchIcon } from "../../assets/icons/icons";
 import { checkFollowing, otherUsers } from "../../utils";
 import { Loader } from "../loader/Loader";
 import "./Aside.css";
@@ -23,59 +22,62 @@ export function Aside() {
       : otherUsers(users, user).slice(0, 2);
   };
   return (
-
-      <div className="aside">
-<div className="sidebar">
-        <div className="aside-searchbox">
-          <input placeholder="search post, people, anything" />
-          <SearchIcon />
-        </div>
+    <div className="aside">
+      <div className="sidebar">
         <h3 className="follow-card-heading">
-          who to follow?{" "}
+          who to follow?
           <span
             className="m-l-auto btn-show-more"
             onClick={() => setShowMoreUsers(!showMoreUsers)}
-            >
+          >
             {showMoreUsers ? <>show less</> : <>show more</>}
           </span>
         </h3>
         <div className="follow-card">
           {loading ? (
             <Loader />
-            ) : (
-              showMoreHandler(users, user).map((item) => (
-                <div className="follow-user" key={item._id} >
-                    <Avatar alt="avatar" src={item.userAvatar} sx={{marginRight:"0.5rem"}}/>
-        
-                <div onClick={() => {
-                  navigate(`/${item.username}`);
-                }}>
-                  <h3
-                    >
+          ) : (
+            showMoreHandler(users, user).map((item) => (
+              <div className="follow-user" key={item._id}>
+                <Avatar
+                  onClick={() => {
+                    navigate(`/profile/${item.username}`);
+                  }}
+                  alt="avatar"
+                  src={item.userAvatar}
+                  sx={{ marginRight: "0.5rem" }}
+                />
+
+                <div
+                  onClick={() => {
+                    navigate(`/profile/${item.username}`);
+                  }}
+                >
+                  <h3>
                     {item.firstName} {item.lastName}
                   </h3>
                   <span className="ft-w-300">@{item.username}</span>
                 </div>
                 {checkFollowing(user, item) ? (
                   <button
-                  className="m-l-auto"
-                  onClick={() => dispatch(unfollow(item))}
+                    className="m-l-auto"
+                    onClick={() => dispatch(unfollow(item))}
                   >
                     following
                   </button>
                 ) : (
                   <button
-                  className="m-l-auto"
-                  onClick={() => dispatch(follow(item))}
+                    className="m-l-auto"
+                    onClick={() => dispatch(follow(item))}
                   >
                     follow+
                   </button>
                 )}
               </div>
             ))
-            )}
+          )}
         </div>
-        </div>
-  </div>
+      </div>
+    </div>
   );
 }

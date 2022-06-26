@@ -29,7 +29,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/bookmark" element={<Bookmark />} />
             <Route path="/explore" element={<Explore />} />
-            <Route path="/:username" element={<Profile />} />
+            <Route path="/profile/:username" element={<Profile />} />
             <Route path="/post/:PostId" element={<SinglePost />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/mock" element={<Mockman />} />

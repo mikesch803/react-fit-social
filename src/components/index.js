@@ -11,4 +11,4 @@ export {PostCardOptions} from './card-options/PostCardOptions';
 export {EditProfileModal} from './edit-profile/EditProfileModal';
 export {EditPost} from "./edit-textbox/EditPost";
 export {NavbarBottom} from "./navbar-bottom/NavbarBottom"
- 
+export {EmojiPicker} from './emoji-picker/EmojiPicker'

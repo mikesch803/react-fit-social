@@ -102,7 +102,7 @@ export const editUserProfile = createAsyncThunk("auth/editUserProfile", async (u
         authorization : token
       }
     });
-    console.log(response.data.user)
+    toast('Profile updated')
     return response.data.user;
   } catch (err) {
     return rejectWithValue(err)
@@ -196,6 +196,7 @@ export const authSlice = createSlice({
     [editUserProfile.fulfilled]: (state, action) => {
       state.loading = false;
       state.user = action.payload;
+      localStorage.setItem("user", JSON.stringify(state.user))
     },
     [editUserProfile.rejected]: (state, action) => {
       state.loading = false;
