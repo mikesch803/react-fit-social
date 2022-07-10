@@ -28,7 +28,7 @@ export const users = [
     createdAt: formatDate(),
     updatedAt: formatDate(),
     userAvatar:
-      "",
+    "https://images.unsplash.com/photo-1581803118522-7b72a50f7e9f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
     bio: "Fitness Coach▪️Youtube- 2.3 M ▪️Good Man",
   },
   {
@@ -41,7 +41,7 @@ export const users = [
     createdAt: formatDate(),
     updatedAt: formatDate(),
     userAvatar:
-      "",
+    "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80",
     bio: "Tweets about Growth, Health and general Self-Improvement.",
   },
   {
@@ -54,7 +54,7 @@ export const users = [
     createdAt: formatDate(),
     updatedAt: formatDate(),
     userAvatar:
-      "",
+    "https://images.unsplash.com/photo-1644982647708-0b2cc3d910b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
     bio: "10 years lifting experience | Building an online coaching business to help you build muscle and lose fat\n⭐Join my free telegram for fitness and mindset tips",
   },
   {
@@ -67,7 +67,7 @@ export const users = [
     createdAt: formatDate(),
     updatedAt: formatDate(),
     userAvatar:
-      "",
+    "https://images.unsplash.com/photo-1590086782957-93c06ef21604?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
     bio: "I write about building good habits. Over 1 million people read my 3-2-1 newsletter",
   },
   {
@@ -80,7 +80,7 @@ export const users = [
     createdAt: formatDate(),
     updatedAt: formatDate(),
     userAvatar:
-      "",
+    "https://pbs.twimg.com/profile_images/2866198511/a55e7955fbcde7f3df81db47e40f6084_400x400.jpeg",
     bio: "Writing life advice that doesn't suck since 2008.",
   },
   {

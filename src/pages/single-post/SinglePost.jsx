@@ -59,6 +59,7 @@ export function SinglePost() {
               className="btn-reply"
               variant="contained"
               size="small"
+              disabled={comment?.reply?.length === 0 }
               onClick={() => {
                 dispatch(addComment(comment));
                 setComment({ ...comment, reply: "" });
@@ -71,6 +72,7 @@ export function SinglePost() {
               className="btn-reply"
               variant="contained"
               size="small"
+              disabled={comment?.reply?.length === 0 }
               onClick={() => {
                 dispatch(editComment(comment));
                 setComment({ ...comment, reply: "", editReplyState: false });
