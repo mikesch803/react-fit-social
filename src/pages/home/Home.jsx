@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllPosts, closeEditModal } from "../../reducers/postSlice";
 import {
@@ -12,20 +12,22 @@ import {
 } from "../../components";
 import "./Home.css";
 import { useTitle } from "../../hooks";
+import { getFeeds } from "../../utils/getFeeds";
 export function Home() {
   const { posts, loading, editModal, currPost } = useSelector(
     (state) => state.posts
   );
+  const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllPosts());
   }, [dispatch]);
-  const latestPost = [...posts].reverse();
+  const latestPost = getFeeds(user, posts).reverse();
 
   useTitle("Home");
 
-  const [filter, setFilter] = React.useState("Latest");
-
+  const [filter, setFilter] = useState("Latest");
+  console.log(user);
   const filterHandler = (event) => {
     setFilter(event.target.value);
   };
@@ -54,7 +56,10 @@ export function Home() {
         )}
 
         {editModal && (
-          <div className="modal-edit" onClick={()=>dispatch(closeEditModal())}>
+          <div
+            className="modal-edit"
+            onClick={() => dispatch(closeEditModal())}
+          >
             <EditPost currPost={currPost} closeEditModal={closeEditModal} />
           </div>
         )}

@@ -58,14 +58,6 @@ export function LoginForm({ setLoginForm, guestLogin, login }) {
          {passwordHidden ? <PasswordNotShowIcon /> : <PasswordShowIcon/>}
         </button>
       </div>
-      <div className="form-checkbox">
-        <label>
-          <input type="checkbox" /> Remember me
-        </label>
-        <Link to="#" className="btn btn-link">
-          Forget password?
-        </Link>
-      </div>
       <button className="btn btn-primary form-btn" type="submit">
         login
       </button>

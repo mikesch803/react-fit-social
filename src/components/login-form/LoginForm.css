@@ -1,55 +1,53 @@
+.form-login {
+  grid-area: main;
+  padding: 1rem;
+  justify-content: center;
+  background-color: var(--COLOR-FT);
+  gap: 0.5rem;
+  position: relative;
+  height: fit-content;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: var(--BORDER-RADIUS);
+  width: 70%;
+}
 
-  .form-login {
-    grid-area: main;
-    padding: 1rem;
-    justify-content: center;
-    background-color: var(--COLOR-FT);
-    gap: 0.5rem;
-    position: relative;
-    height: fit-content;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    border-radius: var(--BORDER-RADIUS);
-    max-width: 27rem;
+.form-btn {
+  margin-top: 0;
+  display: block;
+  width: 100%;
+}
 
-  }
-  
-  .form-btn {
-    margin-top: 0;
-    display: block;
-    width: 100%;
-  }
-  
-  .title-form,
-  .link-account {
-    text-align: center;
-  }
-  
-  .form-checkbox {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .form-passwordeye {
-    position: absolute;
-    right: 10px;
-    display: flex;
-  }
-  
-  .parent-div {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    position: relative;
-  }
+.title-form,
+.link-account {
+  text-align: center;
+}
 
-  .form-input {
-      width: 100%;
-      border-radius: var(--BORDER-RADIUS);
-      border: 1px solid;
-      padding: 1rem;
-  }
+.form-checkbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .mt-1{
-    margin-top: 1rem;
-  }
+.form-passwordeye {
+  position: absolute;
+  right: 10px;
+  display: flex;
+}
+
+.parent-div {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  position: relative;
+}
+
+.form-input {
+  width: 100%;
+  border-radius: var(--BORDER-RADIUS);
+  border: 1px solid;
+  padding: 1rem;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}

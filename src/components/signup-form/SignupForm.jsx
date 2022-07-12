@@ -127,11 +127,6 @@ export function SignupForm({ setLoginForm, signup }) {
         </button>
       </div>
       <small className="form-error">{errMsg.confirmPassword}</small>
-      <div className="form-checkbox signup-checkbox">
-        <label>
-          <input type="checkbox" required /> I accepted all terms and conditions
-        </label>
-      </div>
       <button className="btn btn-primary form-btn" type="submit">
         create new account
       </button>
