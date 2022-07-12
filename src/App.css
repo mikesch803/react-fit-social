@@ -2,6 +2,7 @@
 :root {
   --COLOR-PRIMARY: #00c9ff;
   --COLOR-PRIMARY-DARK: #5271ff;
+  --COLOR-BORDER : #cdc6c6
 }
 
 .App {

@@ -43,12 +43,12 @@ export function PostCard({ item }) {
           {item.name} <span className="ft-w-400 ft-grey" onClick={() => {
                   navigate(`/profile/${item.username}`);
                 }}>@{item.username}</span>
-          <span
-            className="m-l-auto m-r-half"
+          <button
+            className="m-l-auto m-r-half post-icon"
             onClick={() => setPostCardOption(!postCardOption)}
           >
             {user.username === item.username && <OptionIcon />}
-          </span>
+          </button>
         </h3>
         {postCardOption && <PostCardOptions item={item} setPostCardOption={setPostCardOption}/>}
         <p className="post-content">{item.content}</p>
