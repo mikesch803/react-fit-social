@@ -5,7 +5,7 @@ import "./Textbox.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addPost } from "../../reducers/postSlice";
 import { Avatar, IconButton } from "@mui/material";
-import { EmojiPicker } from "../index";
+// import { EmojiPicker } from "../index";
 
 export function Textbox() {
   const { user } = useSelector((state) => state.auth);
@@ -57,11 +57,11 @@ export function Textbox() {
             post
           </Button>
         </div>
-        <div className="emoji-container">
+        {/* <div className="emoji-container">
           {showEmojiPicker && (
             <EmojiPicker setContent={setContent} content={content} />
           )}
-        </div>
+        </div> */}
       </div>
     </div>
   );

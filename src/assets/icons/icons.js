@@ -1,3 +1,4 @@
+import React from "react";
 export function HomeIcon(props) {
   return (
     <svg width="1em" height="1em" viewBox="0 0 36 36" {...props}>

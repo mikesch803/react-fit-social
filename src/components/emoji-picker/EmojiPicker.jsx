@@ -1,5 +1,5 @@
 import React from "react";
-import Picker, { SKIN_TONE_MEDIUM_DARK } from "emoji-picker-react";
+// import Picker, { SKIN_TONE_MEDIUM_DARK } from "emoji-picker-react";
 
 export const EmojiPicker = ({ setContent }) => {
   const onEmojiClick = (event, emojiObject) => {
@@ -8,13 +8,13 @@ export const EmojiPicker = ({ setContent }) => {
 
   return (
     <div>
-      <Picker
+      {/* <Picker
         onEmojiClick={onEmojiClick}
         disableAutoFocus={true}
         skinTone={SKIN_TONE_MEDIUM_DARK}
         groupNames={{ smileys_people: "PEOPLE" }}
         native
-      />
+      /> */}
     </div>
   );
 };

@@ -121,7 +121,7 @@ export const bookmarkPostHandler = function (schema, request) {
         }
       );
     }
-    const isBookmarked = user.bookmarks.some(
+    const isBookmarked = user.bookmarks?.some(
       (currPost) => currPost._id === postId
     );
     if (isBookmarked) {
@@ -168,7 +168,7 @@ export const removePostFromBookmarkHandler = function (schema, request) {
         }
       );
     }
-    const isBookmarked = user.bookmarks.some(
+    const isBookmarked = user.bookmarks?.some(
       (currPost) => currPost._id === postId
     );
     if (!isBookmarked) {
@@ -215,7 +215,7 @@ export const followUserHandler = function (schema, request) {
         }
       );
     }
-    const isFollowing = user.following.some(
+    const isFollowing = user.following?.some(
       (currUser) => currUser._id === followUser._id
     );
 
@@ -276,7 +276,7 @@ export const unfollowUserHandler = function (schema, request) {
         }
       );
     }
-    const isFollowing = user.following.some(
+    const isFollowing = user.following?.some(
       (currUser) => currUser._id === followUser._id
     );
 

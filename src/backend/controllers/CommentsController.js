@@ -193,7 +193,7 @@ export const upvotePostCommentHandler = function (schema, request) {
     );
 
     if (
-      post.comments[commentIndex].votes.upvotedBy.some(
+      post.comments[commentIndex].votes.upvotedBy?.some(
         (currUser) => currUser._id === user._id
       )
     ) {
@@ -244,7 +244,7 @@ export const downvotePostCommentHandler = function (schema, request) {
     );
 
     if (
-      post.comments[commentIndex].votes.downvotedBy.some(
+      post.comments[commentIndex].votes.downvotedBy?.some(
         (currUser) => currUser._id === user._id
       )
     ) {

@@ -6,7 +6,7 @@ import "./EditPost.css";
 import { useDispatch, useSelector } from "react-redux";
 import { editPost } from "../../reducers/postSlice";
 import { Avatar } from "@mui/material";
-import { EmojiPicker } from "../emoji-picker/EmojiPicker";
+// import { EmojiPicker } from "../emoji-picker/EmojiPicker";
 
 export function EditPost({ currPost, closeEditModal }) {
   const { user } = useSelector((state) => state.auth);
@@ -56,11 +56,11 @@ export function EditPost({ currPost, closeEditModal }) {
             post
           </Button>
         </div>
-        <div className="emoji-container">
+        {/* <div className="emoji-container">
           {showEmojiPicker && (
             <EmojiPicker setContent={setPostContent}  />
           )}
-        </div>
+        </div> */}
       </div>
     </div>
   );

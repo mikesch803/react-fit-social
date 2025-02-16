@@ -1,1 +1,1 @@
-export const checkFollowing = (user, item) => user.following.some(ele => ele.username === item.username);
+export const checkFollowing = (user, item) => user.following?.some(ele => ele.username === item.username);

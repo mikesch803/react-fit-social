@@ -169,7 +169,7 @@ export const likePostHandler = function (schema, request) {
     }
     const postId = request.params.postId;
     const post = schema.posts.findBy({ _id: postId }).attrs;
-    if (post.likes.likedBy.some((currUser) => currUser._id === user._id)) {
+    if (post.likes.likedBy?.some((currUser) => currUser._id === user._id)) {
       return new Response(
         400,
         {},
@@ -222,7 +222,7 @@ export const dislikePostHandler = function (schema, request) {
         { errors: ["Cannot decrement like less than 0."] }
       );
     }
-    if (post.likes.dislikedBy.some((currUser) => currUser._id === user._id)) {
+    if (post.likes.dislikedBy?.some((currUser) => currUser._id === user._id)) {
       return new Response(
         400,
         {},
